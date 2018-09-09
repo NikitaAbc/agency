@@ -1,6 +1,5 @@
 @extends("admin.layouts.app")
 @section("content")
-
-    <h3 class="text-center">QQ</h3>
+<h3>Pages</h3>
 @endsection
 

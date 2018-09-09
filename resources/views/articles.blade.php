@@ -1,6 +1,9 @@
 @extends("layouts.app")
 @section("content")
-<h3>Из articles</h3>
+
+
+Статьи
+
 @endsection
 
 @section("js")

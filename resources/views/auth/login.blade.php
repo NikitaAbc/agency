@@ -1,23 +1,24 @@
 @section("content")
 
 
-    <div id="main">
+    <div id="main" >
 
-        <div id="content" class="container">
+        <div id="content" class="container" >
 
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
                     <h1 class="txt-color-red login-header-big">SmartAdmin</h1>
                     <div class="hero">
 
-                        <div class="pull-left login-desc-box-l">
-                            <h4 class="paragraph-header">It's Okay to be Smart. Experience the simplicity of SmartAdmin, everywhere you go!</h4>
+                        <div class="pull-left ">
+                            <h4 class="paragraph-header">It's Okay to be Smart. Experience the simplicity of SmartAdmin, everywhere you go!
+                                tAdmin, everywhere you go!
+                            </h4>
 
                         </div>
-
-                        <img src="{{ asset("public/img/iphoneview.png") }}" class="pull-right display-image" alt="" style="width:210px">
-
+                        <img src="{{ asset("public/img/iphoneview.png") }}" class="pull-right display-image" alt="" style="width:330px; margin-top:30px;">
                     </div>
+
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
                     <div class="well no-padding">
