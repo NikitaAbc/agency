@@ -28,11 +28,15 @@
                 </li>
 
 
-                <li class="active open">
+                <li>
                     <a href="{{ route("admin.articles.index") }}"><i class="fa fa-lg fa-fw fa-cloud"><em>2</em></i> <span class="menu-item-parent">Статьи</span></a>
                 </li>
 
-                <li class="active open">
+                <li>
+                    <a href="{{ route("admin.services.index") }}">Услуги</a>
+                </li>
+
+                <li>
                     <a href="{{ url("/") }}"> <span class="menu-item-parent">К сайту</span></a>
                 </li>
                 <!---

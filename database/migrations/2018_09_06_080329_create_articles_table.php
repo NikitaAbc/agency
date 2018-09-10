@@ -21,6 +21,7 @@ class CreateArticlesTable extends Migration
             $table->string("tag_description")->nullable();
             $table->string("title");
             $table->text("text");
+            $table->string("image");
             $table->text("footer_text")->nullable();
             $table->string("nullable")->nullable();
 

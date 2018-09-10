@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use Image;
+
 
 class ArticleController extends Controller
 {
@@ -25,7 +27,21 @@ class ArticleController extends Controller
 
     public function add(Request $request)
     {
-        Article::create($request->all());
+        $filename = time() . '.' . $request->file('image')->getClientOriginalExtension();
+
+        Article::create([
+            "title"=>$request->title,
+            "text"=>$request->text,
+            "image"=>$filename,
+            "footer_text"=>$request->footer_text,
+        ]);
+
+        if ($request->hasFile('image')) {
+
+            $img = Image::make($request->file("image"));
+
+            $img->resize(300, 300)->save(public_path('img/articles/' . $filename));
+        }
 
         return redirect()->route("admin.articles.index")
                          ->withSuccess("Вы успешно добавили статью");
@@ -42,9 +58,21 @@ class ArticleController extends Controller
 
     public function update(Request $request, $route)
     {
-        Article::updateOrCreate([
-            "route" => $route
-        ],$request->all());
+        $filename = time() . '.' . $request->file('image')->getClientOriginalExtension();
+
+        if ($request->hasFile('image')) {
+
+            $img = Image::make($request->file("image"));
+
+            $img->resize(300, 300)->save(public_path('img/articles/' . $filename));
+        }
+
+        Article::where("route", $route)->update([
+            "title"=>$request->title,
+            "text"=>$request->text,
+            "image"=>$filename,
+            "footer_text"=>$request->footer_text,
+        ]);
 
         return redirect()->route("admin.articles.index")
                          ->withSuccess("Вы успешно обновили статью");

@@ -33,7 +33,7 @@
                                 <!-- widget content -->
                                 <div class="widget-body">
 
-                                    <form id="movieForm" method="post">
+                                    <form id="movieForm" method="post" enctype="multipart/form-data">
 
                                         {{ csrf_field() }}
                                         <fieldset>
@@ -55,6 +55,11 @@
                                                 <label class="control-label">Описание</label>
                                                 <textarea class="form-control" name="text" rows="8" required></textarea>
                                             </div>
+                                        </fieldset>
+
+                                        <fieldset>
+                                                <label>Выберите картинку.</label>
+                                                <input type="file" name="image" required>
                                         </fieldset>
 
                                         <fieldset>

@@ -33,7 +33,7 @@
                         @forelse($articles as $article)
                         <div class="row" id="article">
                             <div class="col-md-4" >
-                                <img src="img/superbox/superbox-full-15.jpg" class="img-responsive" alt="img">
+                                <img src="{{ "/agency/public/img/articles/" . $article->image }}" class="img-responsive" alt="img">
                                 <ul class="list-inline padding-10">
                                     <li>
                                         <i class="fa fa-calendar"></i>
@@ -60,6 +60,7 @@
                         @endforelse
 
                     </div>
+
 
                     <div class="col-lg-8 col-lg-push-2" style="margin-top:50px;">
 
@@ -144,6 +145,34 @@
                 }
             });
         })
+
+
+        $('#dialog_link').click(function() {
+            $('#dialog_simple').dialog('open');
+            return false;
+
+        });
+
+        $('#dialog_simple').dialog({
+            autoOpen : false,
+            width : 600,
+            resizable : false,
+            modal : true,
+            title : "<div class='widget-header'><h4><i class='fa fa-warning'></i> Empty the recycle bin?</h4></div>",
+            buttons : [{
+                html : "<i class='fa fa-trash-o'></i>&nbsp; Delete all items",
+                "class" : "btn btn-danger",
+                click : function() {
+                    $(this).dialog("close");
+                }
+            }, {
+                html : "<i class='fa fa-times'></i>&nbsp; Cancel",
+                "class" : "btn btn-default",
+                click : function() {
+                    $(this).dialog("close");
+                }
+            }]
+        });
     </script>
         <!-- END MAIN CONTENT -->
 @endsection
