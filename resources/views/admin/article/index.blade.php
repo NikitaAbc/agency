@@ -33,15 +33,15 @@
                         @forelse($articles as $article)
                         <div class="row" id="article">
                             <div class="col-md-4" >
-                                <img src="{{ "/agency/public/img/articles/" . $article->image }}" class="img-responsive" alt="img">
+                                <img src="{{ asset("public/img/articles/" . $article->image) }}" class="img-responsive" alt="img">
                                 <ul class="list-inline padding-10">
                                     <li>
                                         <i class="fa fa-calendar"></i>
-                                        <a href="javascript:void(0);"> Дата </a>
+                                        <a href="#"> Дата </a>
                                     </li>
                                     <li>
                                         <i class="fa fa-comments"></i>
-                                        <a href="javascript:void(0);"> 38 Comments </a>
+                                        <a href="#"> 38 Comments </a>
                                     </li>
                                 </ul>
                             </div>
@@ -93,22 +93,22 @@
                         <h5 class="margin-top-0"><i class="fa fa-fire"></i>Последние статьи:</h5>
                         <ul class="no-padding list-unstyled">
                             <li>
-                                <a href="javascript:void(0);" class="margin-top-0">WPF vs. Windows Forms-Which is better?</a>
+                                <a href="#" class="margin-top-0">WPF vs. Windows Forms-Which is better?</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" class="padding-top-5 display-block">How to create responsive website with Bootstrap?</a>
+                                <a href="#" class="padding-top-5 display-block">How to create responsive website with Bootstrap?</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" class="margin-top-5">The best Joomla! templates 2014</a>
+                                <a href="#" class="margin-top-5">The best Joomla! templates 2014</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" class="margin-top-5">ASP .NET cms list</a>
+                                <a href="#" class="margin-top-5">ASP .NET cms list</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" class="margin-top-5">C# Hello, World! program</a>
+                                <a href="#" class="margin-top-5">C# Hello, World! program</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" class="margin-top-5">Java random generator</a>
+                                <a href="#" class="margin-top-5">Java random generator</a>
                             </li>
                         </ul>
                     </div>

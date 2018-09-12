@@ -27,7 +27,8 @@
             <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
                 <thead>
                 <tr>
-                    <th>Приоритет <a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a></th>
+
+                    <th>Id <a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a></th>
                     <th>Заголовок <a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a> </th>
                     <th>Описание <a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a></th>
                     <th>Нижний текст <a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a></th>
@@ -51,7 +52,7 @@
                     </td>
 
                     <td style="cursor: pointer; font-size:26px">
-                        <a href="{{ route("admin.services.show",$service->route) }}"><i class="fa fa-mail-forward txt-color-orange" aria-hidden="true" title="К редактированию" ></i></a>
+                        <a href="{{ route("admin.services.edit",$service->route) }}"><i class="fa fa-mail-forward txt-color-orange" aria-hidden="true" title="К редактированию" ></i></a>
                         <i class="fa fa-trash txt-color-red" aria-hidden="true" title="Удалить" onclick="destroy(this)"></i>
                     </td>
 
@@ -68,18 +69,33 @@
     </div>
 
     <script>
+        //$('#entry i[rel=up]').eq(0).css({'opacity': 0.1});
+        //$('#entry i[rel=down]').last().css({'opacity': 0.1});
 
 
-        var action;
+
 
         $('.repos').on('click', function() {
 
             let action=$(this).attr('rel'),
                 id=$(this).parent().attr('rel'),
-                position = $(this).closest("tr").find("#position").text();
+                currentTr = $(this).closest('tr'),
+                prevId;
 
 
-            $(this).closest('tr').insertBefore($(this).closest('tr').prev());
+            if(action == "up"){
+
+                prevId = currentTr.prev();
+
+                currentTr.insertBefore($(this).closest('tr').prev());
+
+            } if(action == "down") {
+
+                prevId = currentTr.next();
+
+                currentTr.insertAfter($(this).closest('tr').next());
+
+            }
 
             $.ajaxSetup({
                 headers: {
@@ -87,35 +103,21 @@
                 }
             });
 
-            $.ajax({
+           $.ajax({
                 url: "services",
                 dataType : 'json',
                 type: 'post',
                 data: {
                     "action": action,
                     "id": id,
-                    "position": position,
+                    "prevId": prevId.find('[rel]').eq(0).attr('rel')
                 }
             });
 
-        });
-
-
-
-
-/*
-        $("#entry #checkbox-inline").on("click",function () {
-
-            if($("#entry #checkbox-inline").is(":checked")){
-                $(".elements").show(500);
-            } else {
-                $(".elements").hide(500);
-            }
 
         });
-*/
 
-       var destroy = (self) => {
+       var destroy = function(self){
 
             let position = $(self).parents("#entry").find("#position");
 
@@ -130,9 +132,9 @@
                 dataType : 'json',
                 type: 'delete',
                 data: {
-                    "position": position.text(),
+                    "id": position.text(),
                 },
-                complete: function(response){
+                complete: function(){
                   $(self).parents("#entry").remove();
 
                 }

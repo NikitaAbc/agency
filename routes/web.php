@@ -6,17 +6,20 @@ Route::group(["prefix"=>"admin", "middleware"=>"auth", "namespace"=>"Admin", "as
 
     Route::get('/',"HomeController@index");
 
-   // Route::resource('/pages',"PageController");
+    Route::get('/pages',"PageController@index")->name("pages.index");
+    Route::put("/pages","PageController@update");
 
-    Route::resource('/services',"ServiceController");
+    Route::resource('/services',"ServiceController",["except"=>["show","update","destroy"]]);
+    Route::delete('/services',"ServiceController@remove");
     Route::post("services/create","ServiceController@add");
-    Route::delete('/services',"ServiceController@destroy");
-
+    Route::put('/services/{route}/edit',"ServiceController@update");
 
     Route::resource('/articles',"ArticleController",["except" => ["store","edit"]]);
     Route::post('/articles/create',"ArticleController@add");
     Route::delete('/articles',"ArticleController@destroy");
 
+    Route::get("/slides","SlideController@index")->name("slides.index");
+    Route::post("/slides/edit","SlideController@edit");
 
 
     Route::get('/contacts',"ContactController@index")->name("contacts.index");

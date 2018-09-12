@@ -39,6 +39,7 @@ class ServiceController extends Controller
      */
     public function add(Request $request)
     {
+
         $position = Service::all()->count();
         $position +=1;
 
@@ -56,30 +57,34 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
+        $service = Service::find($request->id);
+        $prevService = Service::find($request->prevId);
 
+        if($service->position>1) {
+            if ($request->action == "up") {
+                $service->position--;
+                $prevService->position++;
 
-        if($request->action == "up"){
-            $position = $request->position + 1;
-        } else {
-            $position = $request->position - 1;
+            }
         }
-        Service::where("id",$request->id)->update([
-            "position"=>$position,
+        if($service->position>=1){
+            if($request->action == "down") {
+                $service->position++;
+                $prevService->position--;
+
+            }
+        }
+
+        $service->update([
+            "position"=>$service->position,
+
+        ]);
+
+        $prevService->update([
+            "position"=>$prevService->position,
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($route)
-    {
-        return view("admin.service.show",[
-            "service"=> Service::where("route",$route)->first()
-        ]);
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -87,9 +92,11 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($route)
     {
-        //
+        return view("admin.service.edit",[
+            "service"=> Service::where("route",$route)->first()
+        ]);
     }
 
     /**
@@ -115,7 +122,7 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function remove(Request $request)
     {
         Service::where("position", $request->position)->delete();
     }

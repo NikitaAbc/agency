@@ -23,6 +23,10 @@
                     <a href="{{ url("admin") }}" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Главная</span></a>
 
                 </li>
+                <li>
+                    <a href="{{ route("admin.pages.index") }}"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"><em>2</em></i> <span class="menu-item-parent">Меню</span></a>
+                </li>
+
                 <li class="top-menu-invisible">
                     <a href="{{ route("admin.contacts.index") }}"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">Контакты</span></a>
                 </li>
@@ -34,6 +38,10 @@
 
                 <li>
                     <a href="{{ route("admin.services.index") }}">Услуги</a>
+                </li>
+
+                <li>
+                    <a href="{{ route("admin.slides.index") }}"><i class="fa fa-lg fa-fw fa-cloud"><em>2</em></i> <span class="menu-item-parent">Слайды</span></a>
                 </li>
 
                 <li>

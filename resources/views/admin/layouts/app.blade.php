@@ -138,15 +138,20 @@
 <!-- BOOTSTRAP JS -->
 <script src="{{ asset("public/js/bootstrap/bootstrap.min.js") }}"></script>
 <!-- JARVIS WIDGETS -->
-<script src="{{ asset("public/js/admin/jarvis.widget.min.js") }}"></script>
 
-<script src="{{ asset("public/js/admin/app.min.js") }}"></script>
+
+<script src="{{ asset("public/js/app.js") }}"></script>
+
+<script src="{{ asset("public/js/admin/jarvis.widget.min.js") }}"></script>
 
 <script src="{{ asset("public/js/admin/validator/bootstrapValidator.min.js") }}"></script>
 
-    <script src="{{ asset("public/js/admin/datatables/jquery.dataTables.min.js") }}"></script>
+<script src="{{ asset("public/js/admin/datatables/jquery.dataTables.min.js") }}"></script>
 
-    <script src="{{ asset("public/js/admin/datatables/datatables.responsive.min.js") }}"></script>
+<script src="{{ asset("public/js/admin/datatables/datatables.responsive.min.js") }}"></script>
+
+<script src="{{ asset("public/js/admin/jcrop/jquery.Jcrop.min.js") }}"></script>
+<script src="{{ asset("public/js/admin/jcrop/jquery.color.min.js") }}"></script>
 @show
 
 <style>
