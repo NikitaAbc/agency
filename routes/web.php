@@ -9,6 +9,9 @@ Route::group(["prefix"=>"admin", "middleware"=>"auth", "namespace"=>"Admin", "as
     Route::get('/pages',"PageController@index")->name("pages.index");
     Route::put("/pages","PageController@update");
 
+    Route::get("/pages/{route}/edit","PageController@edit")->name("pages.edit");
+    Route::post("/pages/{route}/edit","PageController@store");
+
     Route::resource('/services',"ServiceController",["except"=>["show","update","destroy"]]);
     Route::delete('/services',"ServiceController@remove");
     Route::post("services/create","ServiceController@add");

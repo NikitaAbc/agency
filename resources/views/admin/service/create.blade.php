@@ -29,8 +29,6 @@
     <section id="widget-grid" class="">
 
 
-
-
         <div class="row">
 
 
@@ -72,6 +70,23 @@
                                         <section class="col col-6">
                                             <label class="input"> <i class="icon-prepend fa fa-envelope-o"></i>
                                                 <input name="footer_text" placeholder="footer">
+                                            </label>
+                                        </section>
+                                </fieldset>
+
+                                <fieldset>
+                                    <h3 class="text-center">Дополнительно</h3>
+                                    <div class="row">
+                                        <section class="col col-6">
+                                            <label class="input">
+                                                <input type="text" name="tag_title" placeholder="tag_title">
+                                            </label>
+                                        </section>
+                                    </div>
+                                    <div class="row">
+                                        <section class="col col-6">
+                                            <label class="input"> <i class="icon-prepend fa fa-envelope-o"></i>
+                                                <input name="tag_description" placeholder="tag_description">
                                             </label>
                                         </section>
                                 </fieldset>

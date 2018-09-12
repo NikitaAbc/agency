@@ -41,7 +41,7 @@
                 @foreach($services as $service)
                 <tr id="entry">
 
-                    <td id="position">{{ $service->position }}</td>
+                    <td>{{ $service->position }}</td>
                     <td contenteditable="false" class="selected">{{ $service->title }}</td>
                     <td contenteditable="false" class="selected">{{ str_limit($service->text, 66) }}</td>
                     <td contenteditable="false" class="selected">{{ $service->footer_text }}</td>
@@ -71,6 +71,7 @@
     <script>
         //$('#entry i[rel=up]').eq(0).css({'opacity': 0.1});
         //$('#entry i[rel=down]').last().css({'opacity': 0.1});
+
 
 
 
@@ -132,7 +133,7 @@
                 dataType : 'json',
                 type: 'delete',
                 data: {
-                    "id": position.text(),
+                    "id": id,
                 },
                 complete: function(){
                   $(self).parents("#entry").remove();

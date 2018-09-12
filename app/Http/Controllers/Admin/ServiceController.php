@@ -39,24 +39,45 @@ class ServiceController extends Controller
      */
     public function add(Request $request)
     {
+        $this->reposition();
+        $counter = Service::all()->count();
 
-        $position = Service::all()->count();
-        $position +=1;
 
         Service::create([
             "title"=>$request->title,
             "route"=>"",
             "text"=>$request->text,
             "footer_text"=>$request->footer_text,
-            "position"=> $position,
+            "tag_title"=>$request->tag_title,
+            "position"=> ++$counter,
 
         ]);
         return redirect()->route("admin.services.index")
             ->withSuccess("Вы успешно добавили услуги");
     }
 
+    private function reposition()
+    {
+        $services = Service::oldest("position")->get();
+
+
+        $counter = 0;
+
+        foreach ($services as $service)
+        {
+            $counter++;
+
+            $service->position = $counter;
+
+            $service->save();
+        }
+
+
+
+    }
     public function store(Request $request)
     {
+
         $service = Service::find($request->id);
         $prevService = Service::find($request->prevId);
 
@@ -124,6 +145,8 @@ class ServiceController extends Controller
      */
     public function remove(Request $request)
     {
-        Service::where("position", $request->position)->delete();
+        Service::find($request->id)->delete();
+
+        $this->reposition();
     }
 }

@@ -25,7 +25,6 @@ class PageController extends Controller
         $page = Page::find($request->id);
         $prevPage = Page::find($request->prevId);
 
-
             if ($request->action == "up") {
                 $page->position--;
                 $prevPage->position++;
@@ -45,5 +44,22 @@ class PageController extends Controller
         $prevPage->update([
             "position"=>$prevPage->position,
         ]);
+    }
+
+    public function edit($route="")
+    {
+        $page = Page::where("route", $route)->first();
+
+        return view("admin.page.edit", compact("page"));
+    }
+
+    public function store(Request $request, $route)
+    {
+        Page::updateOrCreate([
+            "route" => $route
+        ],$request->all());
+
+        return redirect()->route("admin.pages.index")
+                        ->withSuccess("Успешно изменили данные");
     }
 }

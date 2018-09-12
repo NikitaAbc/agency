@@ -43,7 +43,7 @@
                             </td>
 
                             <td style="cursor: pointer; font-size:26px">
-                                <a href="#"><i class="fa fa-mail-forward txt-color-orange" aria-hidden="true" title="К редактированию" ></i></a>
+                                <a href="{{ route("admin.pages.edit", $page->route) }}"><i class="fa fa-mail-forward txt-color-orange" aria-hidden="true" title="Редактировать" ></i></a>
                             </td>
 
                         </tr>
