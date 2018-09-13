@@ -77,6 +77,23 @@
                                             </section>
                                     </fieldset>
 
+                                    <fieldset>
+                                        <h3 class="text-center">Дополнительно</h3>
+                                        <div class="row">
+                                            <section class="col col-6">
+                                                <label class="input">
+                                                    <input type="text" name="tag_title" placeholder="tag_title" value="{{ $service->tag_title }}">
+                                                </label>
+                                            </section>
+                                        </div>
+                                        <div class="row">
+                                            <section class="col col-6">
+                                                <label class="input">
+                                                    <input name="tag_description" placeholder="tag_description" value="{{ $service->tag_description }}">
+                                                </label>
+                                            </section>
+                                    </fieldset>
+
 
                                     <footer>
                                         <button type="submit" class="btn btn-primary">

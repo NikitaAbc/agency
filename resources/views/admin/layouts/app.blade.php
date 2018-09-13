@@ -139,7 +139,6 @@
 <script src="{{ asset("public/js/bootstrap/bootstrap.min.js") }}"></script>
 <!-- JARVIS WIDGETS -->
 
-
 <script src="{{ asset("public/js/app.js") }}"></script>
 
 <script src="{{ asset("public/js/admin/jarvis.widget.min.js") }}"></script>
@@ -157,6 +156,9 @@
 <style>
     #include {
         margin-bottom: 100px;
+    }
+    .action{
+        cursor: pointer; font-size:35px;
     }
 
 </style>

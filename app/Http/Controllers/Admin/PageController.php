@@ -46,14 +46,14 @@ class PageController extends Controller
         ]);
     }
 
-    public function edit($route="")
+    public function edit($route = "")
     {
         $page = Page::where("route", $route)->first();
 
         return view("admin.page.edit", compact("page"));
     }
 
-    public function store(Request $request, $route)
+    public function store(Request $request, $route= "")
     {
         Page::updateOrCreate([
             "route" => $route

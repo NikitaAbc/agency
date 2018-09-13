@@ -55,7 +55,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <label class="control-label">Заголовок</label>
-                                                        <input type="text" class="form-control" name="title" value="{{ $page->title }}"autofocus/>
+                                                        <input type="text" class="form-control" name="title" value="{{ $page->title }}" autofocus/>
                                                     </div>
                                                 </div>
                                             </div>

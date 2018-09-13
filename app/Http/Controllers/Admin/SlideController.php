@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Slide;
 use Image;
+use Storage;
 
 class SlideController extends Controller
 {
@@ -18,7 +19,6 @@ class SlideController extends Controller
 
     public function edit(Request $request)
     {
-
         $filename = time() . '.' . $request->file('file')->getClientOriginalExtension();
 
         $img = Image::make($request->file("file"));
@@ -27,12 +27,23 @@ class SlideController extends Controller
 
         return view("admin.slide.edit", [
             "file"=>$filename,
+            "id"=>$request->slide_id,
+
         ]);
     }
 
-    public function update(Request $request)
+    public function store(Request $request)
     {
+        $width = ($request->x2 - $request->x1);
+        $height = ($request->y2 - $request->y1);
 
+        $img = Image::make(public_path('/img/temp/'.$request->file_name));
+
+        $img->crop($width, $height, $request->x1, $request->y1)->resize(1200,600)->save(public_path('img/slides/' . $request->file_name));
+
+       // Slide::find($request->slide_id)->update(["image"=>$request->file_name]);
+
+        return redirect()->route("admin.slides.index");
     }
 }
 

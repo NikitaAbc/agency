@@ -20,18 +20,16 @@
 
         <div class="table-responsive" style="margin-top:70px;">
 
-            <div style="cursor: pointer; font-size:28px; display:none;" class="pull-right elements">
 
-            </div>
 
             <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
                 <thead>
                 <tr>
 
-                    <th>Id <a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a></th>
-                    <th>Заголовок <a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a> </th>
-                    <th>Описание <a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a></th>
-                    <th>Нижний текст <a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a></th>
+                    <th>Позиция <a href="#" class="btn btn-xs btn-default pull-right"></a></th>
+                    <th>Заголовок <a href="#" class="btn btn-xs btn-default pull-right"></a> </th>
+                    <th>Описание <a href="#" class="btn btn-xs btn-default pull-right"></a></th>
+                    <th>Нижний текст <a href="#" class="btn btn-xs btn-default pull-right"></a></th>
                     <th>Подвинуть</th>
                     <th>Действие</th>
 
@@ -39,20 +37,19 @@
                 </thead>
                 <tbody >
                 @foreach($services as $service)
-                <tr id="entry">
-
+                <tr>
                     <td>{{ $service->position }}</td>
-                    <td contenteditable="false" class="selected">{{ $service->title }}</td>
-                    <td contenteditable="false" class="selected">{{ str_limit($service->text, 66) }}</td>
-                    <td contenteditable="false" class="selected">{{ $service->footer_text }}</td>
+                    <td>{{ $service->title }}</td>
+                    <td>{{ str_limit($service->text, 66) }}</td>
+                    <td>{{ $service->footer_text }}</td>
 
-                    <td style="cursor: pointer; font-size:26px" rel="{{$service->id}}">
+                    <td class="action" rel="{{$service->id}}">
                         <i rel="up" class="fa fa-sort-asc txt-color-green repos" title="Вверх"></i>
                         <i rel="down"class="fa fa-sort-desc txt-color-red repos" title="Вниз"></i>
                     </td>
 
-                    <td style="cursor: pointer; font-size:26px">
-                        <a href="{{ route("admin.services.edit",$service->route) }}"><i class="fa fa-mail-forward txt-color-orange" aria-hidden="true" title="К редактированию" ></i></a>
+                    <td class="action" rel="{{$service->id}}">
+                        <a href="{{ route("admin.services.edit",$service->route) }}"><i class="fa fa-pencil txt-color-orange" aria-hidden="true" title="К редактированию" ></i></a>
                         <i class="fa fa-trash txt-color-red" aria-hidden="true" title="Удалить" onclick="destroy(this)"></i>
                     </td>
 
@@ -82,7 +79,6 @@
                 id=$(this).parent().attr('rel'),
                 currentTr = $(this).closest('tr'),
                 prevId;
-
 
             if(action == "up"){
 
@@ -118,16 +114,15 @@
 
         });
 
-       var destroy = function(self){
+        var destroy =(self) => {
 
-            let position = $(self).parents("#entry").find("#position");
+            let id = $(self).parent().attr("rel");
 
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-
             $.ajax({
                 url: "services",
                 dataType : 'json',
@@ -136,10 +131,11 @@
                     "id": id,
                 },
                 complete: function(){
-                  $(self).parents("#entry").remove();
+                    $(self).parents("tr").remove();
 
                 }
             });
+
         };
 
     </script>

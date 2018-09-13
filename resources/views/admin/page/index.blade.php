@@ -23,7 +23,7 @@
                 <table class="table table-bordered table-condensed table-hover smart-form has-tickbox">
                     <thead>
                     <tr>
-                        <th>Последовательность <a class="btn btn-xs btn-default pull-right"><i class="fa fa-filter"></i></a> </th>
+                        <th>Последовательность <a class="btn btn-xs btn-default pull-right"></a> </th>
                         <th>Название страницы <a class="btn btn-xs btn-default pull-right"></a> </th>
                         <th>Подвинуть</th>
                         <th>Действие</th>
@@ -31,23 +31,25 @@
                     </tr>
                     </thead>
                     <tbody >
-                    @foreach($pages as $index => $page)
+                    @foreach($pages as $page)
                         <tr>
-                            <td>{{ $index+1 }}</td>
+                            <td>{{ $page->position }}</td>
                             <td contenteditable="false" class="selected">
                                 <a href="{{ "/" . $page->route }}">{{ $page->name }}</a></td>
 
-                            <td style="cursor: pointer; font-size:35px" rel="{{$page->id}}">
+                            @if($page->position != 1 and $page->position != 5)
+                            <td class="action" rel="{{$page->id}}">
                                 <i rel="up" class="fa fa-sort-asc txt-color-green repos" title="Вверх"></i>
                                 <i rel="down"class="fa fa-sort-desc txt-color-red repos" title="Вниз"></i>
                             </td>
+                            @else
+                            <td></td>
+                            @endif
 
                             <td style="cursor: pointer; font-size:26px">
-                                <a href="{{ route("admin.pages.edit", $page->route) }}"><i class="fa fa-mail-forward txt-color-orange" aria-hidden="true" title="Редактировать" ></i></a>
+                                <a href="{{ route("admin.pages.edit", $page->route) }}"><i class="fa fa-pencil txt-color-orange" aria-hidden="true" title="Редактировать" ></i></a>
                             </td>
-
                         </tr>
-
                     @endforeach
 
                     </tbody>

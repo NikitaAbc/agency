@@ -42,7 +42,6 @@ class ServiceController extends Controller
         $this->reposition();
         $counter = Service::all()->count();
 
-
         Service::create([
             "title"=>$request->title,
             "route"=>"",
@@ -50,7 +49,6 @@ class ServiceController extends Controller
             "footer_text"=>$request->footer_text,
             "tag_title"=>$request->tag_title,
             "position"=> ++$counter,
-
         ]);
         return redirect()->route("admin.services.index")
             ->withSuccess("Вы успешно добавили услуги");
@@ -59,7 +57,6 @@ class ServiceController extends Controller
     private function reposition()
     {
         $services = Service::oldest("position")->get();
-
 
         $counter = 0;
 
