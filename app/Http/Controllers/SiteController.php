@@ -53,6 +53,8 @@ class SiteController extends Controller
             'page'=>$page->first(),
         ];
 
+        dump($page->first()->route);
+
         return view($view, $result);
     }
 }
