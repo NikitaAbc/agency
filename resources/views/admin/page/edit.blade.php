@@ -13,8 +13,7 @@
 
                     <div class="col-sm-6">
 
-                        <!-- Widget ID (each widget will need unique ID)-->
-                        <div class="jarviswidget" id="wid-id-0" data-widget-colorbutton="false"	data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+                        <div class="jarviswidget" id="wid-id-0" >
 
                             <header>
                                 <h2>#movieForm </h2>

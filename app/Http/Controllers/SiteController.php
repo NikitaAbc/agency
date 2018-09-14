@@ -20,7 +20,6 @@ class SiteController extends Controller
 
         ];
 
-
         switch ($url) {
             case(""):
                 $view ="home";

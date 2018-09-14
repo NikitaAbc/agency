@@ -20,7 +20,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route("admin.articles.index") }}"><i class="fa fa-lg fa-images txt-color-blue"></i>  <span class="menu-item-parent">Статьи</span></a>
+                    <a href="{{ route("admin.articles.index") }}"><i class="fa fa-lg fa-info txt-color-blue"></i>  <span class="menu-item-parent">Статьи</span></a>
                 </li>
 
                 <li>

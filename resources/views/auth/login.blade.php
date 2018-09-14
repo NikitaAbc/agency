@@ -15,7 +15,7 @@
                         <form method="POST" action="{{ route('login') }}" id="login-form" class="smart-form client-form">
                             @csrf
                             <header>
-                                Sign In
+                                Вход
                             </header>
 
                             <fieldset>

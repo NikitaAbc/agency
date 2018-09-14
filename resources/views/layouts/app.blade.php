@@ -3,12 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>The Project | Home</title>
-    @foreach($pages as $page)
-        <meta name="title" content="{{ $page->tag_title }}">
-        <meta name="description" content="{{ $page->tag_description }}">
-    @endforeach
-    <meta name="author" content="author">
+    <title>{{ $page->tag_title }}</title>
+
+    <meta name="description" content="{{ $page->tag_description }}">
 
     <!-- Mobile Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -103,12 +100,20 @@
                                                 class="fa fa-google-plus" title="google"></i></a></li>
                                     @endempty
 
+                                    @empty(!$contact->youtube_link)
                                 <li class="{{ $contact->youtube_link ?: "hidden" }}"><a href="{{ $contact->youtube_link}}"><i
                                                 class="fa fa-youtube" title="youtube"></i></a></li>
+                                    @endempty
+
+                                    @empty(!$contact->fb_link)
                                 <li class="{{ $contact->fb_link ?: "hidden" }}"><a href="{{ $contact->fb_link}}"><i
                                                 class="fa fa-facebook-f" title="facebook"></i></a></li>
+                                    @endempty
+
+                                    @empty(!$contact->fb_link)
                                 <li class="{{ $contact->instagram ?: "hidden" }}"><a href="{{ $contact->instagram }}"><i
                                                 class="fa fa-instagram" title="instagram"></i></a></li>
+                                    @endempty
 
                             </ul>
                             <div class="social-links hidden-md-up circle small">
@@ -130,14 +135,20 @@
                                 </div>
                             </div>
                             <ul class="list-inline hidden-md-down hidden">
+                                @empty(!$contact->address)
                                 <li class="list-inline-item"><i class="fa fa-map-marker pr-1 pl-2"></i>
                                     {{ $contact->address }}
                                 </li>
+                                @endempty
+                                    @empty(!$contact->phone1 )
                                 <li class="list-inline-item"><i class="fa fa-phone pr-1 pl-2"></i>{{ $contact->phone1 }}
+                                    @endempty
                                 </li>
+                                        @empty(!$contact->email_contact )
                                 <li class="list-inline-item"><i class="fa fa-envelope-o pr-1 pl-2"></i>
                                     {{ $contact->email_contact }}
                                 </li>
+                                        @endempty
                             </ul>
                         </div>
                         <!-- header-top-first end -->
@@ -195,14 +206,6 @@
         </div>
         <!-- header-top end -->
 
-        <!-- header start -->
-        <!-- classes:  -->
-        <!-- "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix" -->
-        <!-- "fixed-desktop": enables fixed navigation only for desktop devices e.g. class="header fixed fixed-desktop clearfix" -->
-        <!-- "fixed-all": enables fixed navigation only for all devices desktop and mobile e.g. class="header fixed fixed-desktop clearfix" -->
-        <!-- "dark": dark version of header e.g. class="header dark clearfix" -->
-        <!-- "centered": mandatory class for the centered logo layout -->
-        <!-- ================ -->
         <header class="header fixed fixed-desktop clearfix">
             <div class="container">
                 <div class="row">
