@@ -21,21 +21,18 @@
                             <fieldset>
 
                                 <section>
-                                    <label class="label">E-mail</label>
+                                    <label class="label">Почта</label>
                                     <label class="input"> <i class="icon-append fa fa-user"></i>
                                         <input type="email" name="email">
-                                        <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter email address/username</b></label>
+                                        <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i>Заполните более корректно почту.</b></label>
 
                                 </section>
 
                                 <section>
-                                    <label class="label">Password</label>
+                                    <label class="label">Пароль</label>
                                     <label class="input"> <i class="icon-append fa fa-lock"></i>
                                         <input type="password" name="password">
 
-                                    <div class="note">
-                                        <a href="forgotpassword.html">{{ __('Forgot Your Password?') }}</a>
-                                    </div>
                                 </section>
 
 
@@ -50,12 +47,12 @@
                                 <section>
                                     <label class="checkbox">
                                         <input type="checkbox" name="remember" checked="">
-                                        <i></i>Stay signed in</label>
+                                        <i></i>Запомнить меня</label>
                                 </section>
                             </fieldset>
                             <footer>
                                 <button type="submit" class="btn btn-primary">
-                                    Sign in
+                                    Вход
                                 </button>
                             </footer>
                         </form>
