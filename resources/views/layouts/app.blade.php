@@ -55,12 +55,6 @@
 
 </head>
 
-<style>
-    li .hide{
-        display: none;
-    }
-</style>
-
 <!-- body classes:  -->
 <!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
 <!-- "pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1"> -->
@@ -68,12 +62,17 @@
 <!-- "gradient-background-header": applies gradient background to header -->
 <!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
 
-{{ $class_body= $view == "home"?"front-page transparent-header":""}}
+{{ $class_body= $view == "home"?"front-page transparent-header":"" }}
 
 
 
 <body class="{{$class_body}}">
 
+<style>
+    .hide {
+        display:none;
+    }
+</style>
 <!-- scrollToTop -->
 <!-- ================ -->
 <div class="scrollToTop circle"><i class="fa fa-angle-up"></i></div>
@@ -93,10 +92,17 @@
                         <div class="header-top-first clearfix">
                             <ul class="social-links circle small clearfix hidden-sm-down">
 
-                                <li class="{{ $contact->linkedin_link ?: "hidden" }}"><a href="{{ $contact->linkedin_link }}"><i
-                                                class="fa fa-linkedin" title="linkedin"></i></a></li>
+
+                                @empty(!$contact->linkedin_link)
+                                    <li ><a href="{{ $contact->linkedin_link }}"><i
+                                                    class="fa fa-linkedin" title="linkedin"></i></a></li>
+                                @endempty
+
+                                    @empty(!$contact->google_link)
                                 <li class="{{ $contact->google_link ?: "hidden" }}"><a href="{{ $contact->google_link}}"><i
                                                 class="fa fa-google-plus" title="google"></i></a></li>
+                                    @endempty
+
                                 <li class="{{ $contact->youtube_link ?: "hidden" }}"><a href="{{ $contact->youtube_link}}"><i
                                                 class="fa fa-youtube" title="youtube"></i></a></li>
                                 <li class="{{ $contact->fb_link ?: "hidden" }}"><a href="{{ $contact->fb_link}}"><i
@@ -104,9 +110,6 @@
                                 <li class="{{ $contact->instagram ?: "hidden" }}"><a href="{{ $contact->instagram }}"><i
                                                 class="fa fa-instagram" title="instagram"></i></a></li>
 
-                                @empty($contact)
-                                    <li class="{{ $contact->instagram ?: "hidden" }}">На данный момент соц. сети не указаны.</li>
-                                @endempty
                             </ul>
                             <div class="social-links hidden-md-up circle small">
                                 <div class="btn-group dropdown">
