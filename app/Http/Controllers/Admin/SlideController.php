@@ -27,7 +27,7 @@ class SlideController extends Controller
 
         return view("admin.slide.edit", [
             "file"=>$filename,
-            "id"=>$request->slide_id,
+            "slide_id"=>$request->slide_id,
 
         ]);
     }
@@ -39,9 +39,9 @@ class SlideController extends Controller
 
         $img = Image::make(public_path('/img/temp/'.$request->file_name));
 
-        $img->crop($width, $height, $request->x1, $request->y1)->resize(1200,600)->save(public_path('img/slides/' . $request->file_name));
+        $img->crop($width, $height, $request->x1, $request->y1)->resize(1920,600)->save(public_path('img/slides/' . $request->file_name));
 
-       // Slide::find($request->slide_id)->update(["image"=>$request->file_name]);
+        Slide::find($request->slide_id)->update(["image"=>$request->file_name]);
 
         return redirect()->route("admin.slides.index");
     }

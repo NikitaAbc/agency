@@ -21,8 +21,9 @@ class CreatePagesTable extends Migration
             $table->string("menu");
             $table->string("tag_title")->nullable();
             $table->string("tag_description")->nullable();
-            $table->string("title")->nullable();;
+            $table->string("title")->nullable();
             $table->text("text")->nullable();
+            $table->string("image")->nullable();
             $table->text("footer_text")->nullable();
             $table->integer("position")->nullable();
 

@@ -16,7 +16,7 @@ class ContactController extends Controller
     public function index()
     {
         return view("admin.contact.index",[
-            "contacts" => Contact::all(),
+            "contact" => Contact::first(),
         ]);
     }
 
@@ -27,9 +27,20 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function edit()
+    {
+        return view("admin.contact.edit",[
+            "contact" => Contact::first(),
+        ]);
+    }
+
     public function update(Request $request)
     {
-        Contact::first()->update($request->all()) ?: Contact::create($request->all());
+        Contact::first()->update($request->all());
+
+        return redirect()->route("admin.contacts.index")->withSuccess("Успешно редактировали!");
     }
+
+
 
 }

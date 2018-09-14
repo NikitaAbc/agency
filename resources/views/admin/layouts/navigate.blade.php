@@ -3,15 +3,7 @@
         <!-- User info -->
         <div class="login-info">
 				<span> <!-- User image size is adjusted inside CSS, it should stay as it -->
-
-					<a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
-						<img src="{{ asset("public/img/avatars/sunny.png") }}" alt="me" class="online" />
-						<span>
-							john.doe
-						</span>
-
-					</a>
-
+                    <a href="{{ url("/") }}"> <span class="menu-item-parent">К сайту</span></a>
 				</span>
         </div>
         <!-- end user info -->
@@ -24,29 +16,25 @@
 
                 </li>
                 <li>
-                    <a href="{{ route("admin.pages.index") }}"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"><em>2</em></i> <span class="menu-item-parent">Меню</span></a>
+                    <a href="{{ route("admin.pages.index") }}"><i class="fa fa-lg fa-images txt-color-blue"></i> <span class="menu-item-parent">Страницы</span></a>
+                </li>
+
+                <li>
+                    <a href="{{ route("admin.articles.index") }}"><i class="fa fa-lg fa-images txt-color-blue"></i>  <span class="menu-item-parent">Статьи</span></a>
+                </li>
+
+                <li>
+                    <a href="{{ route("admin.services.index") }}"><i class="fa fa-lg fa-images txt-color-blue"></i> <span class="menu-item-parent">Услуги</span></a>
+                </li>
+
+                <li>
+                    <a href="{{ route("admin.slides.index") }}"><i class="fa fa-lg fa-images txt-color-blue"></i>  <span class="menu-item-parent">Слайды</span></a>
                 </li>
 
                 <li class="top-menu-invisible">
-                    <a href="{{ route("admin.contacts.index") }}"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">Контакты</span></a>
+                    <a href="{{ route("admin.contacts.index") }}"><i class="fa fa-lg fa-images txt-color-blue"></i> <span class="menu-item-parent">Контакты</span></a>
                 </li>
 
-
-                <li>
-                    <a href="{{ route("admin.articles.index") }}"><i class="fa fa-lg fa-fw fa-cloud"><em>2</em></i> <span class="menu-item-parent">Статьи</span></a>
-                </li>
-
-                <li>
-                    <a href="{{ route("admin.services.index") }}">Услуги</a>
-                </li>
-
-                <li>
-                    <a href="{{ route("admin.slides.index") }}"><i class="fa fa-lg fa-fw fa-cloud"><em>2</em></i> <span class="menu-item-parent">Слайды</span></a>
-                </li>
-
-                <li>
-                    <a href="{{ url("/") }}"> <span class="menu-item-parent">К сайту</span></a>
-                </li>
                 <!---
                 <li >
                     <a href="#"><i class="fa fa-lg fa-fw fa-puzzle-piece"></i> <span class="menu-item-parent">App Views</span></a>

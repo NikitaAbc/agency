@@ -1,9 +1,23 @@
 @extends("admin/layouts.app")
 @section("content")
 
+
+    <div id="ribbon">
+
+				<span class="ribbon-button-alignment">
+					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh" rel="tooltip" data-placement="bottom" data-html="true">
+						<i class="fa fa-refresh"></i>
+					</span>
+				</span>
+
+        <ol class="breadcrumb">
+            <li>Home</li><li>Forms</li><li>Form Plugins</li>
+        </ol>
+
+    </div>
+
     <div id="main" role="main">
 
-        <!-- MAIN CONTENT -->
         <div id="content">
 
             <section id="widget-grid" class="">
@@ -61,7 +75,7 @@
 
                                         <fieldset>
                                             <label>Выберите картинку.</label>
-                                            <input type="file" name="image" required>
+                                            <input type="file" name="image">
                                         </fieldset>
 
                                         <fieldset>

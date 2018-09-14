@@ -2,27 +2,27 @@
 @section("content")
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <h2 class="text-center bg-success" >{{ session('success')  }} </h2>
+    @if(session("success"))
+        <div class="alert alert-success no-margin">
+            <button class="close" data-dismiss="alert">
+                ×
+            </button>
+            <div class="text-center">{{ session("success") }}</div>
+        </div>
+    @endif
 
 
-        <!-- MAIN CONTENT -->
-
-
-            <!-- row -->
             <div class="row">
 
-                <!-- col -->
                 <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
                     <h1 class="page-title txt-color-blueDark">
-                        <!-- PAGE HEADER -->
-                        <i class="fa-fw fa fa-home"></i> App Views <span>>
+                        <i class="fa-fw fa fa-home"></i> Статьи <span>>
 								Blog </span>
                     </h1>
                 </div>
-                <!-- end col -->
 
             </div>
-            <!-- end row -->
+
 
             <div class="row">
 

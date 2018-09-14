@@ -7,7 +7,6 @@
 
     <div class="container">
 
-
         <div class="widget-body no-padding">
             <div class="alert alert-warning no-margin">
                 <button class="close" data-dismiss="alert">

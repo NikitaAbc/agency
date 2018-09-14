@@ -58,9 +58,10 @@ class ArticleController extends Controller
 
     public function update(Request $request, $route)
     {
-        $filename = time() . '.' . $request->file('image')->getClientOriginalExtension();
+
 
         if ($request->hasFile('image')) {
+            $filename = time() . '.' . $request->file('image')->getClientOriginalExtension();
 
             $img = Image::make($request->file("image"));
 
@@ -70,7 +71,7 @@ class ArticleController extends Controller
         Article::where("route", $route)->update([
             "title"=>$request->title,
             "text"=>$request->text,
-            "image"=>$filename,
+            "image"=>$filename ?: null,
             "footer_text"=>$request->footer_text,
         ]);
 

@@ -124,34 +124,19 @@
                                             <img src="{{ asset("public/img/temp/" . $file) }}" id="target-5"
                                                  class="pull-left"/>
 
-                                            <div class="pull-left padding-gutter padding-top-0 padding-bottom-0 jcrop-api-tabs-options">
 
-                                                <fieldset class="optdual requiresjcrop">
-
-                                                    <div class="optlist offset">
-                                                        <label class="margin-top-0">
-                                                            <input type="checkbox" class="checkbox style-0"
-                                                                   id="ar_lock">
-                                                            <span>Aspect ratio</span>
-                                                        </label>
-
-                                                    </div>
-
-
-                                                </fieldset>
-
-                                            </div>
                                         </div>
                                         <fieldset>
                                             <form method="post" action="store">
                                                 {{ csrf_field() }}
                                                 <input type="hidden" value="{{ $file }}" name="file_name">
+                                                <input type="hidden" value="{{ $slide_id }}" name="slide_id">
 
                                                 <input type="hidden" id="x1" name="x1">
                                                 <input type="hidden" id="x2" name="x2" >
                                                 <input type="hidden" id="y1" name="y1">
                                                 <input type="hidden" id="y2" name="y2">
-                                                <input type="hidden" id="{{ $id }}" name="slide_id">
+
 
 
                                                 <button type="submit" class="btn btn-primary" id="send">
@@ -202,7 +187,7 @@
                 }, function () {
                     jcrop_api = this;
                     jcrop_api.animateTo([100, 100, 400, 300]);
-                    jcrop_api.setOptions({aspectRatio: 21 / 10});
+                    jcrop_api.setOptions({aspectRatio: 192 / 65});
                 //jcrop_api.focus();
                 });
             }

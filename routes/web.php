@@ -25,13 +25,15 @@ Route::group(["prefix"=>"admin", "middleware"=>"auth", "namespace"=>"Admin", "as
     Route::post("/slides/edit","SlideController@edit");
     Route::post("/slides/store","SlideController@store");
 
-
     Route::get('/contacts',"ContactController@index")->name("contacts.index");
-    Route::put('/contacts',"ContactController@update");
+    Route::get('/contacts/edit',"ContactController@edit")->name("contacts.edit");
+    Route::put('/contacts/edit',"ContactController@update");
 
 });
 
 Route::get('{url?}', "SiteController@index");
+
+Route::post("kontakty/send","ContactController@send");
 
 
 

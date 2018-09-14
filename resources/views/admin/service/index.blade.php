@@ -2,7 +2,14 @@
 @section("content")
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <h2 class="text-center bg-success" >{{ session('success')  }} </h2>
+    @if(session("success"))
+        <div class="alert alert-success no-margin">
+            <button class="close" data-dismiss="alert">
+                ×
+            </button>
+            <div class="text-center">{{ session("success") }}</div>
+        </div>
+    @endif
 
     <div class="container">
 
