@@ -34,12 +34,17 @@
                         <tr>
                             <td>{{ $page->position }}</td>
                             <td contenteditable="false" class="selected">
-                                <a href="{{ "/" . $page->route }}">{{ $page->name }}</a></td>
+                                <a>{{ $page->name }}</a></td>
 
                             @if($page->position != 1 and $page->position != 5)
                             <td class="action" rel="{{$page->id}}">
-                                <i rel="up" class="fa fa-sort-asc txt-color-green repos" title="Вверх"></i>
+                                @if($page->position !=2)
+                                    <i rel="up" class="fa fa-sort-asc txt-color-green repos" title="Вверх"></i>
+                                @endif
+
+                                @if($page->position !=4)
                                 <i rel="down"class="fa fa-sort-desc txt-color-red repos" title="Вниз"></i>
+                                 @endif
                             </td>
                             @else
                             <td></td>

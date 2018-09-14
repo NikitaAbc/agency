@@ -18,10 +18,9 @@
 
     <!-- pulled right: nav area -->
     <div class="pull-right">
-
         <!-- collapse menu button -->
         <div id="hide-menu" class="btn-header pull-right">
-            <span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i
+            <span> <a href="#" data-action="toggleMenu" title="Collapse Menu"><i
                             class="fa fa-reorder"></i></a> </span>
         </div>
         <!-- end collapse menu -->
@@ -29,12 +28,10 @@
 
         <ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
             <li class="">
-                <a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
-                    <img src="img/avatars/sunny.png" alt="John Doe" class="online"/>
-                </a>
+
                 <ul class="dropdown-menu pull-right">
                     <li>
-                        <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"><i
+                        <a href="#" class="padding-10 padding-top-0 padding-bottom-0"><i
                                     class="fa fa-cog"></i> Setting</a>
                     </li>
                     <li class="divider"></li>
@@ -44,12 +41,12 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"
+                        <a href="#" class="padding-10 padding-top-0 padding-bottom-0"
                            data-action="toggleShortcut"><i class="fa fa-arrow-down"></i> <u>S</u>hortcut</a>
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"
+                        <a href="#" class="padding-10 padding-top-0 padding-bottom-0"
                            data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i> Full <u>S</u>creen</a>
                     </li>
                     <li class="divider"></li>
@@ -90,6 +87,7 @@
     </div>
 
 
+
 </header>
 
 @include("admin.layouts.navigate")
@@ -103,8 +101,6 @@
         </div>
 
     </div>
-
-
 </div>
 
 <div class="page-footer">
@@ -120,6 +116,7 @@
 
 
 <script src="{{ asset("public/js/admin/app.config.js") }}"></script>
+
 <!-- BOOTSTRAP JS -->
 <script src="{{ asset("public/js/bootstrap/bootstrap.min.js") }}"></script>
 <!-- JARVIS WIDGETS -->
@@ -139,9 +136,7 @@
 @show
 
 <style>
-    #include {
-        margin-bottom: 100px;
-    }
+
     .action{
         cursor: pointer; font-size:35px;
     }
