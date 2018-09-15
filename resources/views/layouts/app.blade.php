@@ -59,7 +59,7 @@
 <!-- "gradient-background-header": applies gradient background to header -->
 <!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
 
-{{ $class_body= $view == "home"?"front-page transparent-header":"" }}
+<?php $class_body= $view == "home"?"front-page transparent-header":"" ?>
 
 
 
@@ -167,33 +167,7 @@
 
                                     <ul class="dropdown-menu dropdown-menu-right dropdown-animation"
                                         aria-labelledby="header-top-drop-2">
-                                        <li>
-                                            <form class="login-form margin-clear">
-                                                <div class="form-group has-feedback">
-                                                    <label class="control-label">Username</label>
-                                                    <input type="text" class="form-control" placeholder="">
-                                                    <i class="fa fa-user form-control-feedback"></i>
-                                                </div>
-                                                <div class="form-group has-feedback">
-                                                    <label class="control-label">Password</label>
-                                                    <input type="password" class="form-control" placeholder="">
-                                                    <i class="fa fa-lock form-control-feedback"></i>
-                                                </div>
 
-                                                <ul>
-                                                    <li><a href="#">Forgot your password?</a></li>
-                                                </ul>
-                                                <span class="text-center">Login with</span>
-                                                <ul class="social-links circle small colored clearfix">
-                                                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li class="googleplus"><a href="#"><i class="fa fa-google-plus"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </form>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -219,11 +193,6 @@
                                 <a href="index.html"><img id="logo_img"
                                                           src="{{ asset("public/images/logo_light_blue.png") }}"
                                                           alt="The Project"></a>
-                            </div>
-
-                            <!-- name-and-slogan -->
-                            <div class="site-slogan">
-                                Multipurpose HTML5 Template
                             </div>
 
                         </div>
