@@ -315,44 +315,43 @@
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-lg-8">
-                    <h2 class="text-center mt-4">Core <strong>Features</strong></h2>
+                    <h2 class="text-center mt-4">Охранное агентство  <strong>ГРОМ</strong></h2>
                     <div class="separator"></div>
-                    <p class="large text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam
-                        voluptas facere vero ex tempora saepe perspiciatis ducimus sequi animi.</p>
+                    <p class="large text-center">
+
+                    </p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-4">
                     <div class="pv-30 ph-20 feature-box bordered shadow text-center object-non-visible"
                          data-animation-effect="fadeInDownSmall" data-effect-delay="100">
-                        <span class="icon default-bg circle"><i class="fa fa-diamond"></i></span>
-                        <h3>Great &amp; elegant</h3>
+                        <span class="icon default-bg circle"><i class="fa fa-clock-o"></i></span>
+                        <h3>Защита 24/7</h3>
                         <div class="separator clearfix"></div>
-                        <p>Voluptatem ad provident non repudiandae beatae cupiditate amet reiciendis lorem ipsum dolor
-                            sit amet, consectetur.</p>
-                        <a href="page-services.html">Read More <i class="pl-1 fa fa-angle-double-right"></i></a>
+                        <p>24 часа в сутки, 7 дней в неделю мы являемся гарантом надежности, стабильности и безопасности Вас, вашей семьи, дома или бизнеса.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="pv-30 ph-20 feature-box bordered shadow text-center object-non-visible"
                          data-animation-effect="fadeInDownSmall" data-effect-delay="150">
-                        <span class="icon default-bg circle"><i class="fa fa-connectdevelop"></i></span>
-                        <h3>Porro ullam volu</h3>
+                        <span class="icon default-bg circle"><i class="fa fa-diamond"></i></span>
+                        <h3>Гарант надежности</h3>
                         <div class="separator clearfix"></div>
-                        <p>Iure sequi unde hic. Sapiente quaerat sequi inventore veritatis cumque lorem ipsum dolor sit
-                            amet, consectetur.</p>
-                        <a href="page-services.html">Read More <i class="pl-1 fa fa-angle-double-right"></i></a>
+                        <p>
+                            Мы с полной ответственностью подходим к исполнению поставленных перед нами задач и четко следуем выполнению договорных обязательств.
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="pv-30 ph-20 feature-box bordered shadow text-center object-non-visible"
                          data-animation-effect="fadeInDownSmall" data-effect-delay="200">
-                        <span class="icon default-bg circle"><i class="fa fa fa-snowflake-o"></i></span>
-                        <h3>Latest Technologies</h3>
+                        <span class="icon default-bg circle"><i class="fa fa fa-gears"></i></span>
+                        <h3>Технологичность</h3>
                         <div class="separator clearfix"></div>
-                        <p>Inventore dolores aut laboriosam cum consequuntur delectus sequi lorem ipsum dolor sit amet,
-                            consectetur.</p>
-                        <a href="page-services.html">Read More <i class="pl-1 fa fa-angle-double-right"></i></a>
+                        <p>
+                            Мощная техническая база, включающая в себя новейшее современное оборудование ведущих фирм, специализирующихся в этой области.
+                        </p>
                     </div>
                 </div>
             </div>
