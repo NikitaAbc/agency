@@ -18,6 +18,7 @@
 
     <!-- pulled right: nav area -->
     <div class="pull-right">
+
         <!-- collapse menu button -->
         <div id="hide-menu" class="btn-header pull-right">
             <span> <a href="#" data-action="toggleMenu" title="Collapse Menu"><i
@@ -136,7 +137,9 @@
 @show
 
 <style>
-
+    #include {
+        margin-bottom: 100px;
+    }
     .action{
         cursor: pointer; font-size:35px;
     }
