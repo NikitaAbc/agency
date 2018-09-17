@@ -6,6 +6,16 @@
         <!-- MAIN CONTENT -->
         <div id="content">
 
+
+
+            <div class="modal fade submit-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        Вы уверены?
+                    </div>
+                </div>
+            </div>
+
             <section id="widget-grid" class="">
 
                 <!-- row -->
@@ -16,7 +26,7 @@
                         <div class="jarviswidget" id="wid-id-0" >
 
                             <header>
-                                <h2>#movieForm </h2>
+                                <h2>Редактирование страницы </h2>
                             </header>
 
                             <!-- widget div-->
@@ -103,7 +113,7 @@
                                         <div class="form-actions">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <button class="btn btn-default" type="submit">
+                                                    <button class="btn btn-default" type="submit" >
                                                         <i class="fa fa-eye"></i>
                                                         Отправить
                                                     </button>

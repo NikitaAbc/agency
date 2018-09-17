@@ -15,7 +15,7 @@ class SiteController extends Controller
 
         $result=[
           'contact'=>Contact::first(),
-          'services'=> Service::all(),
+          'services'=> Service::latest()->get(),
           'pages'=>$pages,
 
         ];

@@ -45,5 +45,10 @@ class SlideController extends Controller
 
         return redirect()->route("admin.slides.index");
     }
+
+    public function destroy(Request $request)
+    {
+       Slide::find($request->id)->update(["image"=>null]);
+    }
 }
 

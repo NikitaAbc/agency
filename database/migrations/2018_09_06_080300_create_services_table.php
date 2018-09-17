@@ -19,11 +19,11 @@ class CreateServicesTable extends Migration
 
             $table->string("tag_title")->nullable();
             $table->string("tag_description")->nullable();
-            $table->string("title");
-            $table->text("text");
+            $table->string("title")->nullable();
+            $table->text("text")->nullable();
             $table->string("image")->nullable();
             $table->text("footer_text")->nullable();
-            $table->integer("position");
+            $table->integer("position")->nullable();
 
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();

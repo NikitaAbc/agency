@@ -1,114 +1,112 @@
 @extends("admin.layouts.app")
 @section("content")
-<div id="content">
+    <div id="main" role="main">
+        <div id="content">
 
 
-    <div class="row">
-        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-            <h1 class="page-title txt-color-blueDark">
+            <div class="row">
+                <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+                    <h1 class="page-title txt-color-blueDark">
 
-                <i class="fa-fw fa fa-pencil-square-o"></i>
-                Forms
-                <span>>
-				Form Layouts
+                        <!-- PAGE HEADER -->
+                        <i class="fa-fw fa fa-pencil-square-o"></i>
+                        <a href="{{ route("admin.services.index") }}" class="btn btn-default">Услуги</a>
+                        <span>>
+				Добавление
 			</span>
-            </h1>
-        </div>
-    </div>
-
-    <div class="alert alert-block alert-success">
-        <a class="close" data-dismiss="alert" href="#">×</a>
-        <h4 class="alert-heading"><i class="fa fa-check-square-o"></i>Предупреждения</h4>
-        <p>
-            Заполните все данные корректно, перед тем как отправить.
-        </p>
-    </div>
-
-    <!-- widget grid -->
-    <section id="widget-grid" class="">
+                    </h1>
+                </div>
+            </div>
 
 
-        <div class="row">
+            <!-- widget grid -->
+            <section id="widget-grid" class="">
+
+                <div class="row">
 
 
-            <article class="col-sm-12 col-md-12 col-lg-6">
+                    <article class="col-sm-12 col-md-12 col-lg-6">
 
 
-                <div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false">
+                        <div class="jarviswidget " id="wid-id-0"  data-widget-editbutton="false" data-widget-custombutton="false">
 
-                    <header>
-                        <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
-                        <h2>Добавления услуг</h2>
+                            <div>
 
-                    </header>
-                    <div>
+                                <div class="widget-body no-padding">
+                                    <form id="checkout-form" class="smart-form" method="post" enctype="multipart/form-data">
 
-                        <div class="widget-body no-padding">
-
-                            <form id="checkout-form" class="smart-form" method="post">
-
-                                {{ csrf_field() }}
-
-                                <fieldset>
-                                    <div class="row">
-                                        <section class="col col-6">
-                                            <label class="input"> <i class="icon-prepend fa fa-user"></i>
-                                                <input type="text" name="title" placeholder="Заголовок">
-                                            </label>
-                                        </section>
-                                    </div>
-                                    <section>
-                                        <label class="textarea"> <i class="icon-append fa fa-comment"></i>
-                                            <textarea rows="5" name="text" placeholder="Описание"></textarea>
-                                        </label>
-                                    </section>
-
-                                    <div class="row">
-                                        <section class="col col-6">
-                                            <label class="input"> <i class="icon-prepend fa fa-envelope-o"></i>
-                                                <input name="footer_text" placeholder="footer">
-                                            </label>
-                                        </section>
-                                </fieldset>
-
-                                <fieldset>
-                                    <h3 class="text-center">Дополнительно</h3>
-                                    <div class="row">
-                                        <section class="col col-6">
-                                            <label class="input">
-                                                <input type="text" name="tag_title" placeholder="tag_title">
-                                            </label>
-                                        </section>
-                                    </div>
-                                    <div class="row">
-                                        <section class="col col-6">
-                                            <label class="input"> <i class="icon-prepend fa fa-envelope-o"></i>
-                                                <input name="tag_description" placeholder="tag_description">
-                                            </label>
-                                        </section>
-                                </fieldset>
+                                        {{ csrf_field() }}
 
 
-                                <footer>
-                                    <button type="submit" class="btn btn-primary">
-                                        Отправить
-                                    </button>
-                                </footer>
-                            </form>
+                                        <fieldset>
+                                            <div class="row">
+                                                <section class="col col-6">
+                                                    <label class="input">Заголовок
+                                                        <input type="text" name="title">
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            <section class="text-right">
+                                                <label>Добавить картинку.</label>
+                                                <input type="file" name="image" required>
+                                            </section>
+                                            <section>
+                                                <label class="textarea">Описание
+                                                    <textarea rows="5" name="text" ></textarea>
+                                                </label>
+                                            </section>
+
+                                            <section>
+                                                <label class="textarea">Низ страницы
+                                                    <textarea rows="5" name="text"></textarea>
+                                                </label>
+                                            </section>
+                                        </fieldset>
+
+
+                                        <fieldset>
+                                            <h3 class="text-center">Дополнительно</h3>
+                                            <div class="row">
+                                                <section class="col col-6">
+                                                    <label class="input">Tag title
+                                                        <input type="text" name="tag_title">
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            <div class="row">
+                                                <section class="col col-6">
+                                                    <label class="input">Tag description
+                                                        <input name="tag_description">
+                                                    </label>
+                                                </section>
+                                        </fieldset>
+
+
+                                        <footer>
+                                            <button type="submit" class="btn btn-primary">
+                                                Отправить
+                                            </button>
+                                        </footer>
+                                    </form>
+
+                                </div>
+
+
+                            </div>
+
 
                         </div>
 
 
-                    </div>
-
+                    </article>
 
                 </div>
 
+            </section>
 
-            </article>
 
         </div>
+    </div>
 
-    </section>
-</div>
+
 @endsection

@@ -9,6 +9,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <header id="header">
@@ -104,41 +106,99 @@
 </div>
 
 <div class="page-footer">
-    <div class="row">
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-10 col-sm-6">
             <span class="txt-color-white"> <span class="hidden-xs">Footer</span> © 2017-2019</span>
         </div>
-    </div>
 </div>
 
 
 @section("main-js")
 
 
-<script src="{{ asset("public/js/admin/app.config.js") }}"></script>
 
-<!-- BOOTSTRAP JS -->
-<script src="{{ asset("public/js/bootstrap/bootstrap.min.js") }}"></script>
-<!-- JARVIS WIDGETS -->
+    <!-- IMPORTANT: APP CONFIG -->
+    <script src="{{ asset("public/js/admin/app.config.js") }}"></script>
 
-<script src="{{ asset("public/js/app.js") }}"></script>
+    <!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+    <script src="{{ asset("public/js/admin/plugin/jquery-touch/jquery.ui.touch-punch.min.js") }}"></script>
 
-<script src="{{ asset("public/js/admin/jarvis.widget.min.js") }}"></script>
+    <!-- BOOTSTRAP JS -->
+    <script src="{{ asset("public/js/admin/bootstrap/bootstrap.min.js") }}"></script>
 
-<script src="{{ asset("public/js/admin/validator/bootstrapValidator.min.js") }}"></script>
+    <!-- CUSTOM NOTIFICATION -->
+    <script src="{{ asset("public/js/admin/notification/SmartNotification.min.js") }}"></script>
 
-<script src="{{ asset("public/js/admin/datatables/jquery.dataTables.min.js") }}"></script>
+    <!-- JARVIS WIDGETS -->
+    <script src="{{ asset("public/js/admin/smartwidgets/jarvis.widget.min.js") }}"></script>
 
-<script src="{{ asset("public/js/admin/datatables/datatables.responsive.min.js") }}"></script>
+    <!-- EASY PIE CHARTS -->
+    <script src="{{ asset("public/js/admin/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js") }}"></script>
 
-<script src="{{ asset("public/js/admin/jcrop/jquery.Jcrop.min.js") }}"></script>
-<script src="{{ asset("public/js/admin/jcrop/jquery.color.min.js") }}"></script>
+    <!-- SPARKLINES -->
+    <script src="{{ asset("public/js/admin/plugin/sparkline/jquery.sparkline.min.js") }}"></script>
+
+    <!-- JQUERY VALIDATE -->
+    <script src="{{ asset("public/js/admin/plugin/jquery-validate/jquery.validate.min.js") }}"></script>
+
+    <!-- JQUERY MASKED INPUT -->
+    <script src="{{ asset("public/js/admin/plugin/masked-input/jquery.maskedinput.min.js") }}"></script>
+
+    <!-- JQUERY SELECT2 INPUT -->
+    <script src="{{ asset("public/js/admin/plugin/select2/select2.min.js") }}"></script>
+
+    <!-- JQUERY UI + Bootstrap Slider -->
+    <script src="{{ asset("public/js/admin/plugin/bootstrap-slider/bootstrap-slider.min.js") }}"></script>
+
+    <!-- browser msie issue fix -->
+    <script src="{{ asset("public/js/admin/plugin/msie-fix/jquery.mb.browser.min.js") }}"></script>
+
+    <!-- FastClick: For mobile devices -->
+    <script src="{{ asset("public/js/admin/plugin/fastclick/fastclick.min.js") }}"></script>
+
+    <!--[if IE 8]>
+
+    <h1>Ваш браузер не поддерживает данный ресурс.</h1>
+
+    <![endif]-->
+
+    <!-- MAIN APP JS FILE -->
+    <script src="{{ asset("public/js/admin/app.min.js") }}"></script>
+
+    <!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+    <!-- Voice command : plugin -->
+    <script src="{{ asset("public/js/admin/speech/voicecommand.min.js") }}"></script>
+
+    <!-- SmartChat UI : plugin -->
+    <script src="{{ asset("public/js/admin/smart-chat-ui/smart.chat.ui.min.js") }}"></script>
+    <script src="{{ asset("public/js/admin/smart-chat-ui/smart.chat.manager.min.js") }}"></script>
+
+    <!-- PAGE RELATED PLUGIN(S) -->
+
+    <!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip -->
+    <script src="{{ asset("public/js/admin/plugin/flot/jquery.flot.cust.min.js") }}"></script>
+    <script src="{{ asset("public/js/admin/plugin/flot/jquery.flot.resize.min.js") }}"></script>
+    <script src="{{ asset("public/js/admin/plugin/flot/jquery.flot.time.min.js") }}"></script>
+    <script src="{{ asset("public/js/admin/plugin/flot/jquery.flot.tooltip.min.js") }}"></script>
+
+    <!-- Vector Maps Plugin: Vectormap engine, Vectormap language -->
+    <script src="{{ asset("public/js/admin/plugin/vectormap/jquery-jvectormap-1.2.2.min.js") }}"></script>
+    <script src="{{ asset("public/js/admin/plugin/vectormap/jquery-jvectormap-world-mill-en.js") }}"></script>
+
+    <!-- Full Calendar -->
+    <script src="{{ asset("public/js/admin/plugin/moment/moment.min.js") }}"></script>
+    <script src="{{ asset("public/js/admin/plugin/fullcalendar/fullcalendar.min.js") }}"></script>
+
+
+
+    <script src="{{ asset("public/js/admin/plugin/jcrop/jquery.Jcrop.min.js") }}"></script>
+    <script src="{{ asset("public/js/admin/plugin/jcrop/jquery.color.min.js")  }}"></script>
+
 @show
 
 <style>
 
     .action{
-        cursor: pointer; font-size:35px;
+        cursor: pointer; font-size:30px;
     }
 
 </style>

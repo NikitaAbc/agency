@@ -4,16 +4,14 @@
         @foreach($pages as $page)
             @if($page->route == "uslugi")
                 <li class="nav-item dropdown">
-                    <a href="{{ $page->route }}" class="nav-link dropdown-toggle"
-                       aria-haspopup="true" aria-expanded="false">
+                    <a href="{{ $page->route }}" id="{{ $page->route  }}"  class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
                         {{ $page->name }}
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="{{ $page->route }}">
+                    <div class="dropdown-menu" aria-labelledby="{{ $page->route }}">
                         @foreach($services as $service)
-                            <li><a href="{{ $service->route }}">{{ $service->title }}</a></li>
+                        <a class="dropdown-item" href="{{ $service->route }}">{{ $service->title }}</a>
                         @endforeach
-                    </ul>
-
+                    </div>
                 </li>
             @else
                 <li class="nav-item">
@@ -23,5 +21,6 @@
                 </li>
             @endif
         @endforeach
+
     </ul>
 </div>

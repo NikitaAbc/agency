@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
+    protected $redirectAfterLogout = '/login';
+
     public function index()
     {
         return view('admin/home');

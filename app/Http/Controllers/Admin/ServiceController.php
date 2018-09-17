@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Service;
+use Image;
+use File;
 
 class ServiceController extends Controller
 {
@@ -31,6 +33,28 @@ class ServiceController extends Controller
         return view("admin.service.create");
     }
 
+    private function getImage($request)
+    {
+        $filename = time() . '.' . $request->file("image")->getClientOriginalExtension();
+
+        if ($request->hasFile("image")) {
+
+            $img = Image::make($request->file("image"));
+
+            $img->resize(300, 300)->save(public_path('img/services/' . $filename));
+        }
+
+        return $filename;
+    }
+
+    private function unlinkImage($link)
+    {
+
+        if(File::exists($link)) {
+            File::delete($link);
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -40,16 +64,19 @@ class ServiceController extends Controller
     public function add(Request $request)
     {
         $this->reposition();
+
         $counter = Service::all()->count();
 
         Service::create([
             "title"=>$request->title,
             "route"=>"",
             "text"=>$request->text,
+            "image"=>$this->getImage($request),
             "footer_text"=>$request->footer_text,
             "tag_title"=>$request->tag_title,
             "position"=> ++$counter,
         ]);
+
         return redirect()->route("admin.services.index")
             ->withSuccess("Вы успешно добавили услуги");
     }
@@ -69,9 +96,8 @@ class ServiceController extends Controller
             $service->save();
         }
 
-
-
     }
+
     public function store(Request $request)
     {
 
@@ -126,9 +152,10 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $route)
     {
-        Service::updateOrCreate([
-            "route" => $route
-        ],$request->all());
+
+        Service::where("route", $route)->first()
+                                       ->update($request->all());
+
 
         return redirect()->route("admin.services.index")
             ->withSuccess("Вы успешно изменили услуги");
@@ -142,8 +169,15 @@ class ServiceController extends Controller
      */
     public function remove(Request $request)
     {
-        Service::find($request->id)->delete();
+        $serviceId = Service::find($request->id);
 
+        $filePath = public_path("img/services/" . $serviceId->image);
+
+        $serviceId->delete();
         $this->reposition();
+
+        $this->unlinkImage($filePath); //Удаление изображения с папки
+
+
     }
 }

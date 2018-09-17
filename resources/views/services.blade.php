@@ -15,12 +15,13 @@
                 <div class="main col-12">
                     <!-- page-title start -->
                     <!-- ================ -->
-                    <h1 class="page-title text-center">Our <strong>Services</strong></h1>
+                    <h1 class="page-title text-center">Наши <strong>Услуги</strong></h1>
                     <div class="separator"></div>
                     <br>
                     <!-- page-title end -->
 
                     <div class="row">
+                        @foreach($services as $service)
                         <div class="col-md-4">
                             <div class="image-box style-2 mb-20">
                                 <div class="overlay-container overlay-visible">
@@ -28,104 +29,19 @@
                                     <a href="#" class="overlay-link"><i class="fa fa-link"></i></a>
                                     <div class="overlay-bottom hidden-sm-down">
                                         <div class="text">
-                                            <p class="lead margin-clear text-left">Service One</p>
+                                            <p class="lead margin-clear text-left">{{ $service->title }}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="body padding-horizontal-clear">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihil, adipisci rem minus? Voluptatem distinctio laborum porro aspernatur.</p>
-                                    <a class="link-dark" href="page-services.html">Read More<i class="pl-1 fa fa-angle-double-right"></i></a>
+                                    <p>{{ $service->text }}</p>
+                                    <a class="link-dark" href="{{ $service->route }}">Перейти<i class="pl-1 fa fa-angle-double-right"></i></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="image-box style-2 mb-20">
-                                <div class="overlay-container overlay-visible">
-                                    <img src="images/service-2.jpg" alt="">
-                                    <a href="#" class="overlay-link"><i class="fa fa-link"></i></a>
-                                    <div class="overlay-bottom hidden-sm-down">
-                                        <div class="text">
-                                            <p class="lead margin-clear text-left">Service Two</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="body padding-horizontal-clear">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihil, adipisci rem minus? Voluptatem distinctio laborum porro aspernatur.</p>
-                                    <a class="link-dark" href="page-services.html">Read More<i class="pl-1 fa fa-angle-double-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="image-box style-2 mb-20">
-                                <div class="overlay-container overlay-visible">
-                                    <img src="images/service-3.jpg" alt="">
-                                    <a href="#" class="overlay-link"><i class="fa fa-link"></i></a>
-                                    <div class="overlay-bottom hidden-sm-down">
-                                        <div class="text">
-                                            <p class="lead margin-clear text-left">Service Three</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="body padding-horizontal-clear">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihil, adipisci rem minus? Voluptatem distinctio laborum porro aspernatur.</p>
-                                    <a class="link-dark" href="page-services.html">Read More<i class="pl-1 fa fa-angle-double-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="image-box style-2 mb-20">
-                                <div class="overlay-container overlay-visible">
-                                    <img src="images/service-4.jpg" alt="">
-                                    <a href="#" class="overlay-link"><i class="fa fa-link"></i></a>
-                                    <div class="overlay-bottom hidden-sm-down">
-                                        <div class="text">
-                                            <p class="lead margin-clear text-left">Service Four</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="body padding-horizontal-clear">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihil, adipisci rem minus? Voluptatem distinctio laborum porro aspernatur.</p>
-                                    <a class="link-dark" href="page-services.html">Read More<i class="pl-1 fa fa-angle-double-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="image-box style-2 mb-20">
-                                <div class="overlay-container overlay-visible">
-                                    <img src="images/service-5.jpg" alt="">
-                                    <a href="#" class="overlay-link"><i class="fa fa-link"></i></a>
-                                    <div class="overlay-bottom hidden-sm-down">
-                                        <div class="text">
-                                            <p class="lead margin-clear text-left">Service Five</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="body padding-horizontal-clear">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihil, adipisci rem minus? Voluptatem distinctio laborum porro aspernatur.</p>
-                                    <a class="link-dark" href="page-services.html">Read More<i class="pl-1 fa fa-angle-double-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="image-box style-2 mb-20">
-                                <div class="overlay-container overlay-visible">
-                                    <img src="images/service-6.jpg" alt="">
-                                    <a href="#" class="overlay-link"><i class="fa fa-link"></i></a>
-                                    <div class="overlay-bottom hidden-sm-down">
-                                        <div class="text">
-                                            <p class="lead margin-clear text-left">Service Six</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="body padding-horizontal-clear">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihil, adipisci rem minus? Voluptatem distinctio laborum porro aspernatur.</p>
-                                    <a class="link-dark" href="page-services.html">Read More<i class="pl-1 fa fa-angle-double-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <!-- main end -->
 

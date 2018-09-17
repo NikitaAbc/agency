@@ -1,6 +1,15 @@
 @extends("admin/layouts.app")
 @section("content")
 
+    <h3 class="page-title txt-color-blueDark">
+
+        <i class="fa-fw fa fa-pencil-square-o"></i>
+        <a href="{{ route("admin.articles.index") }}" class="btn btn-default">Статьи</a>
+        <span>>
+				Добавление
+			</span>
+    </h3>
+
     <div id="main" role="main">
 
         <!-- MAIN CONTENT -->
@@ -17,7 +26,7 @@
                         <div class="jarviswidget" id="wid-id-0" data-widget-colorbutton="false"	data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
 
                             <header>
-                                <h2>#movieForm </h2>
+                                <h2>Добавление статьи</h2>
                             </header>
 
                             <!-- widget div-->
@@ -50,6 +59,11 @@
                                             </div>
                                         </fieldset>
 
+                                        <fieldset class="text-center">
+                                            <label>Выберите картинку.</label>
+                                            <input type="file" name="image" required>
+                                        </fieldset>
+
                                         <fieldset>
                                             <div class="form-group">
                                                 <label class="control-label">Описание</label>
@@ -57,20 +71,13 @@
                                             </div>
                                         </fieldset>
 
-                                        <fieldset>
-                                                <label>Выберите картинку.</label>
-                                                <input type="file" name="image" required>
-                                        </fieldset>
+
 
                                         <fieldset>
                                             <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-sm-12 col-md-8">
-                                                        <label class="control-label">Footer</label>
-                                                        <input type="text" class="form-control" name="footer_text" />
-                                                    </div>
+                                                    <label class="control-label">Низ страницы</label>
+                                                    <textarea class="form-control" name="footer_text" rows="8" required></textarea>
                                                 </div>
-                                            </div>
                                         </fieldset>
 
 
