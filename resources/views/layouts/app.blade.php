@@ -325,7 +325,7 @@
                 <div class="subfooter-inner">
                     <div class="row">
                         <div class="col-md-12">
-                            <p class="text-center">Copyright © 2018 Все права защищены</p>
+                            <p class="text-center">Copyright © <?php echo date('Y'); ?> Все права сохранены</p>
                         </div>
                     </div>
                 </div>
