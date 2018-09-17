@@ -8,15 +8,14 @@ use App\Models\Contact;
 use App\Models\Service;
 use App\Models\Article;
 
-
-class ServiceController extends Controller
+class ArticleController extends Controller
 {
     public function show($route)
     {
         $pages = Page::oldest("position")->get();
         $articles = Article::latest();
-        $view = "service.show";
-        $service = Service::where("route",$route)->first();
+        $view = "article.show";
+        $article = Article::where("route",$route)->first();
 
         $result=[
             'contact'=>Contact::first(),
@@ -25,8 +24,15 @@ class ServiceController extends Controller
             'articles'=>$articles->take(3)->get(),
             'page' => $pages->where("route", "uslugi")->first(),
             'view'=>$view,
-            'service'=>$service
+            'article'=>$article
         ];
+
+        if($route == "novosti")
+        {
+            $result+=[
+                "articles_paginate"=>$articles->paginate(9),
+            ];
+        }
 
         return view($view, $result);
     }

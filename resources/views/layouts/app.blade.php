@@ -211,7 +211,7 @@
             <div class="container">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <i class="fa fa-home pr-2"></i><a class="link-dark" href="/">Главная</a>
+                        <i class="fa fa-home pr-2"></i><a class="link-dark" href="{{ url("/") }}">Главная</a>
                     </li>
                     <li class="breadcrumb-item active">{{ $page->menu }}</li>
                 </ol>
@@ -238,61 +238,33 @@
                                                               src="{{ asset("public/images/logo_light_blue.png") }}" alt="">
                                 </div>
                             </div>
+                            <div>
+                                {{ $page->footer_text }}
+                            </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="footer-content">
                                 <h2 class="title">Последние новости</h2>
                                 <div class="separator-2"></div>
+                                @foreach($articles as $article)
                                 <div class="media margin-clear">
                                     <div class="d-flex pr-2">
                                         <div class="overlay-container">
-                                            <img class="media-object" src="public/images/blog-thumb-1.jpg"
+                                            <img class="media-object" src="{{ asset("public/img/articles/". $article->image) }}"
                                                  alt="blog-thumb">
-                                            <a href="blog-post.html" class="overlay-link small"><i
+                                            <a href="{{ url("novosti/".$article->route) }}" class="overlay-link small"><i
                                                         class="fa fa-link"></i></a>
                                         </div>
                                     </div>
                                     <div class="media-body">
-                                        <h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit
-                                                amet...</a></h6>
-                                        <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 23, 2017
+                                        <h6 class="media-heading"><a href="{{ url("novosti/".$article->route) }}" style="overflow: hidden">{{ str_limit($article->title,30) }}</a></h6>
+                                       <!--- <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 23, 2017 --->
                                         </p>
                                     </div>
                                 </div>
-                                <hr>
-                                <div class="media margin-clear">
-                                    <div class="d-flex pr-2">
-                                        <div class="overlay-container">
-                                            <img class="media-object" src="public/images/blog-thumb-2.jpg"
-                                                 alt="blog-thumb">
-                                            <a href="blog-post.html" class="overlay-link small"><i
-                                                        class="fa fa-link"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h6 class="media-heading"><a href="public/blog-post.html">Lorem ipsum dolor sit
-                                                amet...</a></h6>
-                                        <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 22, 2017
-                                        </p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="media margin-clear">
-                                    <div class="d-flex pr-2">
-                                        <div class="overlay-container">
-                                            <img class="media-object" src="public/images/blog-thumb-3.jpg"
-                                                 alt="blog-thumb">
-                                            <a href="blog-post.html" class="overlay-link small"><i
-                                                        class="fa fa-link"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h6 class="media-heading"><a href="public/blog-post.html">Lorem ipsum dolor sit
-                                                amet...</a></h6>
-                                        <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 21, 2017
-                                        </p>
-                                    </div>
-                                </div>
+                                    <hr>
+                                @endforeach
+
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -304,11 +276,17 @@
                                 </ul>
                                 <div class="separator-2"></div>
                                 <ul class="list-icons">
-                                    <li><i class="fa fa-map-marker pr-2 text-default"></i> {{ $contact->address }}</li>
-                                    <li><i class="fa fa-phone pr-2 text-default"></i> {{ $contact->phone1 }}</li>
+                                    @empty(!$contact->address)
+                                    <li><i class="fa fa-map-marker pr-2 text-default" title="Адрес"></i> {{ $contact->address }}</li>
+                                    @endempty
+                                        @empty(!$contact->phone1)
+                                    <li><i class="fa fa-phone pr-2 text-default" title="Телефон #1"></i> {{ $contact->phone1 }}</li>
+                                        @endempty
+                                        @empty(!$contact->email_contact)
                                     <li><a href="mailto:{{ $contact->email_contact }}"><i
-                                                    class="fa fa-envelope-o pr-2"></i>{{ $contact->email_contact }}</a>
+                                                    class="fa fa-envelope-o pr-2" title="Почта"> </i>{{ $contact->email_contact }}</a>
                                     </li>
+                                        @endempty
                                 </ul>
                             </div>
                         </div>

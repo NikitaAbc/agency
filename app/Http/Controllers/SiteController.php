@@ -12,11 +12,13 @@ class SiteController extends Controller
     public function index($url = "")
     {
         $pages = Page::oldest("position")->get();
+        $articles = Article::latest();
 
         $result=[
           'contact'=>Contact::first(),
           'services'=> Service::latest()->get(),
           'pages'=>$pages,
+          'articles'=>$articles->take(3)->get(),
 
         ];
 
@@ -33,7 +35,7 @@ class SiteController extends Controller
                 $view = "articles";
                 $page = $pages->where("route", "novosti");
                 $result+=[
-                    'articles'=>Article::latest()->get(),
+                    "articles_paginate"=>$articles->paginate(9),
                 ];
                 break;
             case("o-nas"):

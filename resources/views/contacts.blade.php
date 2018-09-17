@@ -14,8 +14,7 @@
                     <h1 class="page-title">Связь с нами</h1>
                     <div class="separator-2"></div>
                     <!-- page-title end -->
-                    <p>It would be great to hear from you! Just drop us a line and ask for anything with which you think
-                        we could be helpful. We are looking forward to hearing from you!</p>
+                    <p class="text-center">Введите свои данные, для связи с нами.</p>
                     <div class="contact-form">
                         <form class="margin-clear" method="post">
                             {{ csrf_field() }}
@@ -40,7 +39,6 @@
                         </form>
                     </div>
                 </div>
-                <!-- main end -->
 
                 <!-- sidebar start -->
                 <!-- ================ -->
@@ -50,42 +48,48 @@
                             <h3 class="title">Связь с нами:</h3>
                             <div class="separator-2"></div>
                             <ul class="list">
-                                <li class="{{ $contact->address ?: "hidden"  }}"><i class="fa fa-home pr-10"></i>{{ $contact->address }}</li>
-                                <li class="{{ $contact->phone1 ?: "hidden"  }}"><i class="fa fa-phone  pr-10 pl-1"></i><abbr title="Phone"></abbr>{{ $contact->phone1 }}
-                                </li>
-                                <li class="{{ $contact->phone2 ?: "hidden"  }}"><i class="fa fa-phone pr-10 pl-1"></i><abbr
-                                            title="Phone"></abbr> {{ $contact->phone2 ?: "" }}</li>
-                                <li class="{{ $contact->phone3 ?: "hidden"  }}"><i class="fa fa-phone pr-10 pl-1"></i><abbr
-                                            title="Phone"></abbr> {{ $contact->phone3 ?: "" }}</li>
-                                <li class="{{ $contact->email_contact ?: "hidden"  }}"><i class="fa fa-envelope pr-10"></i><a
-                                            href="mailto:youremail@domain.com">{{ $contact->email_contact?: "" }}</a></li>
+                                @empty(!$contact->address)
+                                    <li class="{{ $contact->address }}"><i class="fa fa-home pr-10"></i>{{ $contact->address }}</li>
+                                @endempty
+
+                                    @empty(!$contact->phone1)
+                                        <li class="{{ $contact->phone1 }}"><i class="fa fa-phone  pr-10 pl-1"></i><abbr title="Phone">{{  $contact->phone1 }}</li>
+                                    @endempty
+
+                                    @empty(!$contact->phone2)
+                                        <li class="{{ $contact->phone2 }}"><i class="fa fa-phone  pr-10 pl-1"></i><abbr title="Phone">{{  $contact->phone2 }}</li>
+                                    @endempty
+                                    @empty(!$contact->phone3)
+                                        <li class="{{ $contact->phone3}}"><i class="fa fa-phone pr-10 pl-1"></i><abbr
+                                                    title="Phone"></abbr> {{ $contact->phone3 }}</li>
+                                    @endempty
+
+                                    @empty(!$contact->email_contact)
+                                        <li class="{{ $contact->email_contact }}"><i class="fa fa-envelope pr-10"></i><a
+                                                    href="{{ $contact->email_contact }}">{{ $contact->email_contact }}</a></li>
+                                    @endempty
+
                             </ul>
-                            <a class="btn btn-gray collapsed map-show btn-animated" data-toggle="collapse"
-                               href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">Show Map <i
+
+                            <a class="btn btn-gray collapsed map-show btn-animated" data-toggle="collapse" href="#map" aria-expanded="false"
+                               aria-controls="collapseExample">Наше местоположение<i
                                         class="fa fa-plus"></i></a>
+                            <div class="collapse" id="map">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3051.033792605589!2d36.22703312584621!3d49.98129617104838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a05fa181aa71%3A0x23f918527f2475c2!2z0YPQuy4g0JLQvtGB0LrRgNC10YHQtdC90YHQutCw0Y8sIDIzLCDQpdCw0YDRjNC60L7Qsiwg0KXQsNGA0YzQutC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNjEwMDA!5e0!3m2!1sru!2sua!4v1537182944283"
+                                            width="350" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+
+
                         </div>
                     </div>
                     <div class="sidebar">
                         <div class="block clearfix">
-                            <h4 class="title">Следите за нами:</h4>
+                            <h4 class="title">Подписывайтесь на нас:</h4>
                             <div class="separator-2"></div>
                             <ul class="social-links circle small margin-clear clearfix animated-effect-1">
                                 <ul class="social-links circle small clearfix hidden-sm-down">
 
-                                    <li class="{{ $contact->linkedin_link ?: "hidden" }}"><a href="{{ $contact->linkedin_link }}"><i
-                                                    class="fa fa-linkedin" title="linkedin"></i></a></li>
-                                    <li class="{{ $contact->google_link ?: "hidden" }}"><a href="{{ $contact->google_link}}"><i
-                                                    class="fa fa-google-plus" title="google"></i></a></li>
-                                    <li class="{{ $contact->youtube_link ?: "hidden" }}"><a href="{{ $contact->youtube_link}}"><i
-                                                    class="fa fa-youtube" title="youtube"></i></a></li>
-                                    <li class="{{ $contact->fb_link ?: "hidden" }}"><a href="{{ $contact->fb_link}}"><i
-                                                    class="fa fa-facebook-f" title="facebook"></i></a></li>
-                                    <li class="{{ $contact->instagram ?: "hidden" }}"><a href="{{ $contact->instagram }}"><i
-                                                    class="fa fa-instagram" title="instagram"></i></a></li>
-
-                                    @empty($contact)
-                                        <li class="{{ $contact->instagram ?: "hidden" }}">На данный момент соц. сети не указаны.</li>
-                                    @endempty
+                                    @include('layouts.socials')
                                 </ul>
                             </ul>
                         </div>
@@ -96,6 +100,7 @@
             </div>
         </div>
     </section>
+
 @endsection
 
 @section("js")
@@ -127,6 +132,10 @@
         });
 
 
+    </script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
     </script>
 @endsection
 

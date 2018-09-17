@@ -32,7 +32,12 @@ Route::group(["prefix"=>"admin", "middleware"=>"auth", "namespace"=>"Admin", "as
 
 });
 
+
+
 Route::get('{url?}', "SiteController@index");
+
+Route::get("uslugi/{route?}","ServiceController@show");
+Route::get("novosti/{route?}","ArticleController@show");
 
 Route::post("kontakty/send","ContactController@send");
 
