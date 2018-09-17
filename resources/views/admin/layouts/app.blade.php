@@ -20,7 +20,6 @@
 
     <!-- pulled right: nav area -->
     <div class="pull-right">
-
         <!-- collapse menu button -->
         <div id="hide-menu" class="btn-header pull-right">
             <span> <a href="#" data-action="toggleMenu" title="Collapse Menu"><i
@@ -107,15 +106,32 @@
 </div>
 
 <div class="page-footer">
-        <div class="col-xs-10 col-sm-6">
-            <span class="txt-color-white"> <span class="hidden-xs">Footer</span> © 2017-2019</span>
-        </div>
+    <div class="col-xs-10 col-sm-6">
+        <span class="txt-color-white"> <span class="hidden-xs">Footer</span> © 2017-2019</span>
+    </div>
 </div>
 
 
 @section("main-js")
 
 
+    <!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+    <script data-pace-options='{ "restartOnRequestAfter": true }' src="{{ asset("public/") }}js/plugin/pace/pace.min.js"></script>
+
+    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        if (!window.jQuery) {
+            document.write('<script src="{{ asset("public/js/libs/jquery-3.2.1.min.js")}}"><script>');
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        if (!window.jQuery.ui) {
+            document.write('<script src="{{ asset("public/js/libs/jquery-ui.min.js")}}"><script>');
+        }
+    </script>
 
     <!-- IMPORTANT: APP CONFIG -->
     <script src="{{ asset("public/js/admin/app.config.js") }}"></script>
@@ -156,14 +172,8 @@
     <!-- FastClick: For mobile devices -->
     <script src="{{ asset("public/js/admin/plugin/fastclick/fastclick.min.js") }}"></script>
 
-    <!--[if IE 8]>
-
-    <h1>Ваш браузер не поддерживает данный ресурс.</h1>
-
-    <![endif]-->
-
-    <!-- MAIN APP JS FILE -->
-    <script src="{{ asset("public/js/admin/app.min.js") }}"></script>
+    <!-- MAIN APP JS FILE
+    <script src="{{ asset("public/js/admin/app.min.js") }}"></script> -->
 
     <!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
     <!-- Voice command : plugin -->
@@ -188,21 +198,12 @@
     <!-- Full Calendar -->
     <script src="{{ asset("public/js/admin/plugin/moment/moment.min.js") }}"></script>
     <script src="{{ asset("public/js/admin/plugin/fullcalendar/fullcalendar.min.js") }}"></script>
-
-
-
-    <script src="{{ asset("public/js/admin/plugin/jcrop/jquery.Jcrop.min.js") }}"></script>
-    <script src="{{ asset("public/js/admin/plugin/jcrop/jquery.color.min.js")  }}"></script>
-
 @show
 
 <style>
-    #include {
-        margin-bottom: 100px;
-    }
+
     .action{
         cursor: pointer; font-size:30px;
     }
 
 </style>
-

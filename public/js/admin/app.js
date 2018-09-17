@@ -107,13 +107,13 @@ var calc_navbar_height = function() {
 			    
 			    // LOGOUT MSG 
 			    userLogout: function($this){
-
+			
 					// ask verification
 					$.SmartMessageBox({
 						title : "<i class='fa fa-sign-out txt-color-orangeDark'></i> Logout <span class='txt-color-orangeDark'><strong>" + $('#show-shortcut').text() + "</strong></span> ?",
 						content : $this.data('logout-msg') || "You can improve your security further after logging out by closing this opened browser",
 						buttons : '[No][Yes]'
-
+			
 					}, function(ButtonPressed) {
 						if (ButtonPressed == "Yes") {
 							$.root_.addClass('animated fadeOutUp');
@@ -123,7 +123,7 @@ var calc_navbar_height = function() {
 					function logout() {
 						window.location = $this.attr('href');
 					}
-
+			
 				},
 		
 				// RESET WIDGETS
