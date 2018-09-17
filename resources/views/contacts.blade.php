@@ -51,11 +51,11 @@
                             <div class="separator-2"></div>
                             <ul class="list">
                                 <li class="{{ $contact->address ?: "hidden"  }}"><i class="fa fa-home pr-10"></i>{{ $contact->address }}</li>
-                                <li class="{{ $contact->phone1 ?: "hidden"  }}"><i class="fa fa-mobile pr-10 pl-1"></i><abbr title="Phone"></abbr>{{ $contact->phone1 }}
+                                <li class="{{ $contact->phone1 ?: "hidden"  }}"><i class="fa fa-phone  pr-10 pl-1"></i><abbr title="Phone"></abbr>{{ $contact->phone1 }}
                                 </li>
-                                <li class="{{ $contact->phone2 ?: "hidden"  }}"><i class="fa fa-mobile pr-10 pl-1"></i><abbr
+                                <li class="{{ $contact->phone2 ?: "hidden"  }}"><i class="fa fa-phone pr-10 pl-1"></i><abbr
                                             title="Phone"></abbr> {{ $contact->phone2 ?: "" }}</li>
-                                <li class="{{ $contact->phone3 ?: "hidden"  }}"><i class="fa fa-mobile pr-10 pl-1"></i><abbr
+                                <li class="{{ $contact->phone3 ?: "hidden"  }}"><i class="fa fa-phone pr-10 pl-1"></i><abbr
                                             title="Phone"></abbr> {{ $contact->phone3 ?: "" }}</li>
                                 <li class="{{ $contact->email_contact ?: "hidden"  }}"><i class="fa fa-envelope pr-10"></i><a
                                             href="mailto:youremail@domain.com">{{ $contact->email_contact?: "" }}</a></li>
