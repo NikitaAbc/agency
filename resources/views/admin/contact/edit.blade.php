@@ -2,7 +2,19 @@
 @section("content")
 <div class="widget-body no-padding">
 
-    <form id="checkout-form" class="smart-form" method="post">
+
+            <h1 class="page-title txt-color-blueDark">
+
+                <!-- PAGE HEADER -->
+                <i class="fa-fw fa fa-pencil-square-o"></i>
+                <a href="{{ route("admin.contacts.index") }}" class="btn btn-default">Контакты</a>
+                <span>>
+				Редактирование
+			</span>
+            </h1>
+
+
+    <form id="widget-grid"class="smart-form " method="post">
 
         @csrf
         <input name="_method" type="hidden" value="PUT">

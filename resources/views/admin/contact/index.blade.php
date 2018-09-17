@@ -2,6 +2,17 @@
 @section("content")
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+
+
+            <h1 class="page-title txt-color-blueDark">
+
+                <!-- PAGE HEADER -->
+                <i class="fa-fw fa fa-pencil-square-o"></i>
+                <a class="btn btn-default">Контакты</a>
+            </h1>
+
+
+
     <div class="container">
 
 

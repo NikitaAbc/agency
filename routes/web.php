@@ -24,6 +24,7 @@ Route::group(["prefix"=>"admin", "middleware"=>"auth", "namespace"=>"Admin", "as
     Route::get("/slides","SlideController@index")->name("slides.index");
     Route::post("/slides/edit","SlideController@edit");
     Route::post("/slides/store","SlideController@store");
+    Route::delete("/slides","SlideController@destroy");
 
     Route::get('/contacts',"ContactController@index")->name("contacts.index");
     Route::get('/contacts/edit',"ContactController@edit")->name("contacts.edit");

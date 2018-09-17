@@ -1,7 +1,6 @@
 @extends("admin.layouts.app")
     <head>
         <title>Редактирование меню</title>
-        <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
 @section("content")
 
@@ -38,13 +37,11 @@
 
                             @if($page->position != 1 and $page->position != 5)
                             <td class="action" rel="{{$page->id}}">
-                                @if($page->position !=2)
-                                    <i rel="up" class="fa fa-sort-asc txt-color-green repos" title="Вверх"></i>
-                                @endif
 
-                                @if($page->position !=4)
-                                <i rel="down"class="fa fa-sort-desc txt-color-red repos" title="Вниз"></i>
-                                 @endif
+                                    <i rel="up" class="fa fa-sort-asc txt-color-green repos" title="Вверх"></i>
+
+                                    <i rel="down"class="fa fa-sort-desc txt-color-red repos" title="Вниз"></i>
+
                             </td>
                             @else
                             <td></td>
@@ -72,7 +69,6 @@
             currentTr = $(this).closest('tr'),
             prevId;
 
-
         if(action == "up"){
 
             prevId = currentTr.prev();
@@ -84,7 +80,6 @@
             prevId = currentTr.next();
 
             currentTr.insertAfter($(this).closest('tr').next());
-
         }
 
         $.ajaxSetup({

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Image;
+use File;
 
 
 class ArticleController extends Controller
@@ -14,7 +15,7 @@ class ArticleController extends Controller
     public function index()
     {
         return view("admin.article.index", [
-            "articles" => Article::latest()->paginate(8),
+            "articles" => Article::latest()->paginate(6),
             "count"=> Article::all()->count(),
         ]);
     }
@@ -55,23 +56,40 @@ class ArticleController extends Controller
         return view("admin.article.show", compact("article"));
     }
 
+    private function unlinkImage($link)
+    {
+
+        if(File::exists($link)) {
+            File::delete($link);
+        }
+    }
+
 
     public function update(Request $request, $route)
     {
 
+        $currentImage = Article::where("route",$route)->first()->image;
+
+        $filePath = public_path("img/articles/");
 
         if ($request->hasFile('image')) {
+
             $filename = time() . '.' . $request->file('image')->getClientOriginalExtension();
 
             $img = Image::make($request->file("image"));
 
-            $img->resize(300, 300)->save(public_path('img/articles/' . $filename));
+            $img->resize(300, 300)->save($filePath . $filename);
+
+            $this->unlinkImage($filePath . $currentImage);
+
+        } else {
+            $filename = $currentImage;
         }
 
         Article::where("route", $route)->update([
             "title"=>$request->title,
             "text"=>$request->text,
-            "image"=>$filename ?: null,
+            "image"=>$filename,
             "footer_text"=>$request->footer_text,
         ]);
 
@@ -82,6 +100,11 @@ class ArticleController extends Controller
 
     public function destroy(Request $request)
     {
-        Article::where("title", $request->title)->delete();
+        $articleId = Article::find($request->id);
+
+        $filePath = public_path("img/articles/" . $articleId->image);
+
+        $articleId->delete();
+        $this->unlinkImage($filePath);
     }
 }

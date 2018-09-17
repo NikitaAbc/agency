@@ -1,15 +1,6 @@
 @extends("admin.layouts.app")
 @section("content")
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @if(session("success"))
-        <div class="alert alert-success no-margin">
-            <button class="close" data-dismiss="alert">
-                ×
-            </button>
-            <div class="text-center">{{ session("success") }}</div>
-        </div>
-    @endif
 
     <div class="container">
 
@@ -22,6 +13,15 @@
 
            <div class="text-center"><i class="fa-fw fa fa-info"></i>Чем ниже приоритет, тем выше услуга.</div>
         </div>
+
+        @if(session("success"))
+            <div class="alert alert-success no-margin">
+                <button class="close" data-dismiss="alert">
+                    ×
+                </button>
+                <div class="text-center">{{ session("success") }}</div>
+            </div>
+        @endif
 
         <div><a href="{{ route("admin.services.create") }}" class="btn btn-success pull-right">Добавить</a></div>
 

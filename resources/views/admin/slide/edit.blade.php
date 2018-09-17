@@ -3,7 +3,7 @@
     <title>
         Редактирование
     </title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 </head>
 @section("content")
 
@@ -55,27 +55,21 @@
     <div id="main" role="main">
 
 
-        <!-- MAIN CONTENT -->
         <div id="content">
-            <!-- row -->
+
             <div class="row">
 
-                <!-- col -->
+
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <h1 class="page-title txt-color-blueDark"><!-- PAGE HEADER --><i
-                                class="fa-fw fa fa-pencil-square-o"></i> Forms <span>>
-							Image Editor </span></h1>
+                                class="fa-fw fa fa-pencil-square-o"></i><a href="{{ route("admin.slides.index") }}" class="btn btn-default">Слайдер</a> <span>>
+							Редактирование </span></h1>
                 </div>
-                <!-- end col -->
 
             </div>
-            <!-- end row -->
 
-            <!--
-            The ID "widget-grid" will start to initialize all widgets below
-            You do not need to use widgets if you dont want to. Simply remove
-            the <section></section> and you can use wells or panels instead
-            -->
+
+
 
             <!-- widget grid -->
             <section id="widget-grid" class="">
@@ -137,9 +131,7 @@
                                                 <input type="hidden" id="y1" name="y1">
                                                 <input type="hidden" id="y2" name="y2">
 
-
-
-                                                <button type="submit" class="btn btn-primary" id="send">
+                                                <button type="submit" class="btn btn-success" id="send">
                                                     Отправить
                                                 </button>
                                             </form>
@@ -207,6 +199,7 @@
 
 
             function releaseCheck() {
+
                 jcrop_api.setOptions({allowSelect: true});
             }
 

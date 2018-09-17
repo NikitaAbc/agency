@@ -2,19 +2,17 @@
 @section("content")
 
 
-    <div id="ribbon">
 
-				<span class="ribbon-button-alignment">
-					<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh" rel="tooltip" data-placement="bottom" data-html="true">
-						<i class="fa fa-refresh"></i>
-					</span>
-				</span>
+            <h3 class="page-title txt-color-blueDark">
 
-        <ol class="breadcrumb">
-            <li>Home</li><li>Forms</li><li>Form Plugins</li>
-        </ol>
+                <i class="fa-fw fa fa-pencil-square-o"></i>
+                <a href="{{ route("admin.articles.index") }}" class="btn btn-default">Статьи</a>
+                <span>>
+				Редактирование
+			</span>
+            </h3>
 
-    </div>
+
 
     <div id="main" role="main">
 
@@ -30,7 +28,7 @@
                         <div class="jarviswidget" id="wid-id-0" data-widget-colorbutton="false"	data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
 
                             <header>
-                                <h2>#movieForm </h2>
+                                <h2>Редактировать статью</h2>
                             </header>
 
                             <!-- widget div-->
@@ -55,6 +53,7 @@
                                             <legend>
                                                 Редактировать статью
                                             </legend>
+
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-md-12">
@@ -65,6 +64,10 @@
                                             </div>
                                         </fieldset>
 
+                                        <fieldset class="text-center">
+                                            <label>Изменить картинку.</label>
+                                            <input type="file" name="image">
+                                        </fieldset>
 
                                         <fieldset>
                                             <div class="form-group">
@@ -73,19 +76,11 @@
                                             </div>
                                         </fieldset>
 
-                                        <fieldset>
-                                            <label>Выберите картинку.</label>
-                                            <input type="file" name="image">
-                                        </fieldset>
 
                                         <fieldset>
                                             <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-sm-12 col-md-8">
-                                                        <label class="control-label">Footer</label>
-                                                        <input type="text" class="form-control" name="footer_text" value="{{ $article->footer_text }}" />
-                                                    </div>
-                                                </div>
+                                                <label class="control-label">Низ страницы</label>
+                                                <textarea class="form-control" name="footer_text" rows="8" required>{{ $article->footer_text }}</textarea>
                                             </div>
                                         </fieldset>
 
